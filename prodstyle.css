@@ -1,0 +1,221 @@
+/* --- BRAND IDENTITY & VARIABLES --- */
+:root {
+            --tps-navy: #1A2744;
+            --tps-forest-green: #1a3d08;
+            --tps-mid-green: #2D8A52;
+            --tps-amber: #C8922A;
+            --tps-cream: #F5F4F0;
+            --tps-charcoal: #2C2C2A;
+            --white: #FFFFFF;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+        body {
+            margin: 0;
+            font-family: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            color: var(--tps-charcoal);
+            background: var(--white);
+        }
+
+        header,
+        .hero {
+            font-family: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        header {
+            position: fixed;
+            inset: 0 0 auto;
+            z-index: 1000;
+            width: 100%;
+            background: rgba(255,255,255,0.96);
+            backdrop-filter: blur(12px);
+            border-bottom: 3px solid var(--tps-mid-green);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        header.hidden {
+            transform: translateY(-120%);
+            opacity: 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo img {
+            height: 65px;
+            width: auto;
+            display: block;
+        }
+
+        .nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--tps-navy);
+            font-weight: 700;
+            font-size: 0.95rem;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--tps-forest-green);
+        }
+
+        .btn-quote {
+            display: inline-block; /* Ensures padding behaves consistently */
+            line-height: 1; /* Resets inherited line-height to fix the extra bottom space */
+            background: var(--tps-amber);
+            color: var(--white);
+            padding: 0.8rem 1.5rem;
+            border-radius: 999px;
+            font-weight: 700;
+            transition: transform 0.2s ease, filter 0.2s ease, background 0.2s ease;
+        }
+
+      
+        .nav-links a.btn-quote {
+            color: var(--white) !important; 
+            background: var(--tps-amber);
+            padding: 0.95rem 1.8rem;
+            border-radius: 999px;
+            font-weight: 700;
+            line-height: 1;
+            display: inline-block;
+            transition: transform 0.2s ease, filter 0.2s ease;
+            text-decoration: none;
+        }
+
+        .nav-links a.btn-quote:hover {
+            color: var(--white) !important;
+            transform: translateY(-2px);
+            filter: brightness(1.05);
+        }
+
+        .btn-quote:hover {
+            transform: translateY(-2px);
+            filter: brightness(1.05);
+        }
+
+        .btn-secondary {
+            border: 1px solid rgba(255,255,255,0.75);
+            background: rgba(45, 138, 82, 0.24);
+            color: var(--white);
+            padding: 0.95rem 1.8rem;
+            border-radius: 999px;
+            display: inline-block;
+        }
+
+
+/* --- HERO / PAGE HEADERS --- */
+.page-header {
+    background: var(--tps-cream);
+    color: var(--tps-forest-green);
+    padding: 4rem 5%;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.page-header h1 { font-size: 3rem; margin: 0; font-weight: 800; margin-top: 100px;}
+.page-header h3 { color: var(--tps-navy); font-weight: 500; margin-top: 10px; }
+
+/* --- PRODUCT DETAIL LAYOUT --- */
+.detail-container {
+    max-width: 1200px;
+    margin: 4rem auto;
+    padding: 0 5%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: start;
+}
+
+.detail-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+}
+
+.detail-content h2 {
+    font-size: 2.2rem;
+    color: var(--tps-navy);
+    margin-bottom: 1.5rem;
+}
+
+.detail-content p {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 2rem;
+}
+
+/* --- SPECS LIST STYLE --- */
+.specs-list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 3rem;
+}
+
+.specs-list li {
+    margin-bottom: 1.2rem;
+    padding-left: 2.5rem;
+    position: relative;
+    font-size: 1.05rem;
+}
+
+.specs-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    background: var(--tps-mid-green);
+    color: white;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+/* --- RESPONSIVE DESIGN --- */
+@media (max-width: 900px) {
+    .detail-container {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        text-align: center;
+    }
+
+    .specs-list li {
+        text-align: left;
+    }
+
+    .page-header h1 { font-size: 2.2rem; }
+    
+    .nav-links { display: none; } /* Consider adding a hamburger menu for mobile */
+}

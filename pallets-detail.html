@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pallets | Toronto Pallet Services</title>
+    <link rel="icon" type="image/x-icon" href="./TPSlogobulb.png">
+    <style>
+        :root {
+            --tps-navy: #1A2744;
+            --tps-forest-green: #1a3d08;
+            --tps-mid-green: #2D8A52;
+            --tps-amber: #C8922A;
+            --tps-cream: #F5F4F0;
+            --tps-charcoal: #2C2C2A;
+            --white: #FFFFFF;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+        body {
+            margin: 0;
+            font-family: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            color: var(--tps-charcoal);
+            background: var(--white);
+        }
+
+        header,
+        .hero {
+            font-family: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        header {
+            position: fixed;
+            inset: 0 0 auto;
+            z-index: 1000;
+            width: 100%;
+            background: rgba(255,255,255,0.96);
+            backdrop-filter: blur(12px);
+            border-bottom: 3px solid var(--tps-mid-green);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        header.hidden {
+            transform: translateY(-120%);
+            opacity: 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo img {
+            height: 65px;
+            width: auto;
+            display: block;
+        }
+
+        .nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--tps-navy);
+            font-weight: 700;
+            font-size: 0.95rem;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--tps-forest-green);
+        }
+
+        .btn-quote {
+            display: inline-block; /* Ensures padding behaves consistently */
+            line-height: 1; /* Resets inherited line-height to fix the extra bottom space */
+            background: var(--tps-amber);
+            color: var(--white);
+            padding: 0.8rem 1.5rem;
+            border-radius: 999px;
+            font-weight: 700;
+            transition: transform 0.2s ease, filter 0.2s ease, background 0.2s ease;
+        }
+
+      
+        .nav-links a.btn-quote {
+            color: var(--white) !important; 
+            background: var(--tps-amber);
+            padding: 0.95rem 1.8rem;
+            border-radius: 999px;
+            font-weight: 700;
+            line-height: 1;
+            display: inline-block;
+            transition: transform 0.2s ease, filter 0.2s ease;
+            text-decoration: none;
+        }
+
+        .nav-links a.btn-quote:hover {
+            color: var(--white) !important;
+            transform: translateY(-2px);
+            filter: brightness(1.05);
+        }
+
+        .btn-quote:hover {
+            transform: translateY(-2px);
+            filter: brightness(1.05);
+        }
+
+        .btn-secondary {
+            border: 1px solid rgba(255,255,255,0.75);
+            background: rgba(45, 138, 82, 0.24);
+            color: var(--white);
+            padding: 0.95rem 1.8rem;
+            border-radius: 999px;
+            display: inline-block;
+        }
+        /* --- PAGE STYLING --- */
+        .page-header {
+            background: linear-gradient(135deg, var(--tps-navy) 0%, var(--tps-forest-green) 100%);
+            color: var(--white);
+            padding: 6rem 5%;
+            margin-top: 100px;
+            text-align: center;
+        }
+        .page-header h1 { font-size: 3.5rem; margin: 0; font-weight: 800; }
+        .page-header p { color: var(--tps-cream); font-size: 1.2rem; max-width: 700px; margin: 1rem auto; }
+
+        .content-block { padding: 5rem 5%; max-width: 1200px; margin: 0 auto; }
+        
+        /* Alternating Sections */
+        .product-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-bottom: 6rem;
+        }
+        .product-row:nth-child(even) { direction: rtl; }
+        .product-row:nth-child(even) .text-box { direction: ltr; }
+
+        .img-container {
+            width: 100%;
+            height: 400px;
+            background: var(--tps-cream);
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        .img-container img { width: 100%; height: 100%; object-fit: cover; }
+
+        .text-box h2 { color: var(--tps-navy); font-size: 2.2rem; margin-bottom: 1rem; position: relative; }
+        .text-box h2::after {
+            content: ''; display: block; width: 60px; height: 4px; 
+            background: var(--tps-amber); margin-top: 10px;
+        }
+
+        .specs-list { list-style: none; padding: 0; margin-top: 1.5rem; }
+        .specs-list li { 
+            margin-bottom: 0.8rem; padding-left: 2rem; position: relative; 
+            font-weight: 500; color: var(--tps-charcoal);
+        }
+        .specs-list li::before { 
+            content: '→'; position: absolute; left: 0; 
+            color: var(--tps-mid-green); font-weight: 800; 
+        }
+
+        .cta-strip {
+            background: var(--tps-cream);
+            text-align: center;
+            padding: 4rem 5%;
+            border-radius: 24px;
+            margin-top: 4rem;
+        }
+
+        @media (max-width: 900px) {
+            .product-row { grid-template-columns: 1fr; gap: 2rem; }
+            .page-header h1 { font-size: 2.5rem; }
+            .img-container { height: 300px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <a href="index.html" style="display: flex; gap: 0.5rem; align-items: center;">
+            <img src="./TPSlogobulb.png" alt="TPS Bulb Logo">
+            <img src="./TPSlogotext.png" alt="TPS Text Logo">
+            </a>
+        </div>
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="products.html">Products</a>
+            <a href="services.html">Services</a>
+            <a href="index.html#certifications">Certifications</a>
+            <a href="contact.html">Contact</a>
+            <a href="index.html#contact" class="btn-quote">Request a Quote</a>
+        </nav>
+    </header>
+
+
+    <main>
+        <section class="page-header">
+            <h1>Industrial Pallet Solutions</h1>
+            <p>From custom engineering to eco-friendly recycling, we can provide.</p>
+        </section>
+
+        <div class="content-block">
+            
+            <article class="product-row">
+                <div class="img-container">
+                    <img src="./pallets.jpeg" alt="New Wood Pallets">
+                </div>
+                <div class="text-box">
+                    <h2>New Pallets</h2>
+                    <p>When strength and quality are non-negotiable. Our new pallets are built from high-grade timber, ensuring a sterile and robust platform for sensitive goods.</p>
+                    <ul class="specs-list">
+                        <li>Hardwood and Softwood Options</li>
+                        <li>Consistent Dimensions for Automated Racking</li>
+                        <li>Zero Risk of Cross-Contamination</li>
+                        <li>2 Way, 4 Way and Block Pallets Available</li>
+                    </ul>
+                </div>
+            </article>
+
+            <article class="product-row">
+                <div class="img-container">
+                    <img src="./recycled-pallets.jpg" alt="Recycled Pallets" style="filter: sepia(0.2);">
+                </div>
+                <div class="text-box">
+                    <h2>Recycled Pallets</h2>
+                    <p>Reduce your environmental footprint and your costs. Our reconditioned pallets are inspected for structural integrity, offering the same performance as new units at a fraction of the price.</p>
+                    <ul class="specs-list">
+                        <li>Grade A (Premium) & Grade B (Standard)</li>
+                        <li>Diverts 100% of wood from landfills</li>
+                        <li>Significant cost-per-trip savings</li>
+                        <li>Quick Delivery Across the GTA</li>
+                    </ul>
+                </div>
+            </article>
+
+            <article class="product-row">
+                <div class="img-container">
+                    <img src="./heattreated.jpg" alt="ISPM-15 Heat Treated Pallets">
+                </div>
+                <div class="text-box">
+                    <h2>Heat Treated Pallets</h2>
+                    <p>Cross borders with confidence. Our heat-treatment process ensures your pallets meet all international phytosanitary requirements, preventing shipping delays and fines.</p>
+                    <ul class="specs-list">
+                        <li>Certified 56°C Core Heat Treatment</li>
+                        <li>Official ISPM-15 Compliance Stamping</li>
+                        <li>Required for International Ccean & Air Freight</li>
+                        <li>International Shipping, Made Locally</li>
+                    </ul>
+                </div>
+            </article>
+
+            <article class="product-row">
+                <div class="img-container">
+                    <img src="./custom-pallets.jpg" alt="Custom Engineered Pallets">
+                </div>
+                <div class="text-box">
+                    <h2>Custom Engineered Pallets</h2>
+                    <p>Standard sizes don't always fit. We use data-driven design to build pallets tailored to your specific product dimensions and weight distribution.</p>
+                    <ul class="specs-list">
+                        <li>Oversized and Heavy-duty Configurations</li>
+                        <li>Internal Dunnage and Bracing Options</li>
+                        <li>Optimized for Trailer and Container Space</li>
+                        <li>Precision-Cut to Your Exact Blueprints</li>
+                    </ul>
+                </div>
+            </article>
+
+            <section class="cta-strip">
+                <h2 style="color: var(--tps-navy);">Ready to Optimize Your Shipping?</h2>
+                <p>Contact our experts today for a high-volume quote or custom design consultation.</p>
+                <a href="contact.html" class="btn-quote" style="font-size: 1.1rem; padding: 1rem 2.5rem;">Request Pricing & Info</a>
+            </section>
+
+        </div>
+    </main>
+
+    <script>
+        const header = document.querySelector('header');
+        let lastScrollY = window.scrollY;
+
+        window.addEventListener('scroll', () => {
+            const currentScrollY = window.scrollY;
+            if (currentScrollY > lastScrollY && currentScrollY > 80) {
+                header.classList.add('hidden');
+            } else {
+                header.classList.remove('hidden');
+            }
+            lastScrollY = currentScrollY;
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Products | Toronto Pallet Services</title>
+    <link rel="icon" type="image/x-icon" href="./TPSlogobulb.png">
+    <style>
+        :root {
+            --tps-navy: #1A2744;
+            --tps-forest-green: #1a3d08;
+            --tps-mid-green: #2D8A52;
+            --tps-amber: #C8922A;
+            --tps-cream: #F5F4F0;
+            --tps-charcoal: #2C2C2A;
+            --white: #FFFFFF;
+            --dark-brown: #4B2F1D;
+        }
+
+        * { box-sizing: border-box; }
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+        body {
+            margin: 0;
+            padding-top: 100px;
+            font-family: 'Inter', sans-serif;
+            background: var(--white);
+            color: var(--tps-charcoal);
+            line-height: 1.7;
+        }
+
+        header,
+        .hero {
+            font-family: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        header {
+            position: fixed;
+            inset: 0 0 auto;
+            z-index: 1000;
+            width: 100%;
+            background: rgba(255,255,255,0.96);
+            backdrop-filter: blur(12px);
+            border-bottom: 3px solid var(--tps-mid-green);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        header.hidden {
+            transform: translateY(-120%);
+            opacity: 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo img {
+            height: 65px;
+            width: auto;
+            display: block;
+        }
+
+        .nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--tps-navy);
+            font-weight: 700;
+            font-size: 0.95rem;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--tps-forest-green);
+        }
+
+        .btn-quote {
+            display: inline-block; 
+            line-height: 1; 
+            background: var(--tps-amber);
+            color: var(--white);
+            padding: 0.8rem 1.5rem;
+            border-radius: 999px;
+            font-weight: 700;
+            transition: transform 0.2s ease, filter 0.2s ease, background 0.2s ease;
+        }
+
+      
+        .nav-links a.btn-quote {
+            color: var(--white) !important; 
+            background: var(--tps-amber);
+            padding: 0.95rem 1.8rem;
+            border-radius: 999px;
+            font-weight: 700;
+            line-height: 1;
+            display: inline-block;
+            transition: transform 0.2s ease, filter 0.2s ease;
+            text-decoration: none;
+        }
+
+        .nav-links a.btn-quote:hover {
+            color: var(--white) !important;
+            transform: translateY(-2px);
+            filter: brightness(1.05);
+        }
+
+        .btn-quote:hover {
+            transform: translateY(-2px);
+            filter: brightness(1.05);
+        }
+
+        .btn-secondary {
+            border: 1px solid rgba(255,255,255,0.75);
+            background: rgba(45, 138, 82, 0.24);
+            color: var(--white);
+            padding: 0.95rem 1.8rem;
+            border-radius: 999px;
+            display: inline-block;
+        }
+
+        .page-header {
+            background: linear-gradient(135deg, var(--tps-navy) 0%, var(--tps-forest-green) 100%);
+            color: var(--tps-cream);
+            padding: 4rem 5%;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .page-header h1 { font-size: 3rem; margin: 0; font-weight: 800; }
+
+        .page-header h3 { color: var(--tps-cream);}
+
+        /* PRODUCT GRID (Reston Style) */
+        .products-grid {
+            max-width: 1200px;
+            margin: 0 auto 5rem;
+            padding: 0 5%;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); 
+            gap: 3rem; 
+        }
+
+        .product-card {
+            position: relative;
+            background: var(--white);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover { transform: translateY(-10px); }
+
+        .image-container {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 4/3;
+            overflow: hidden;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .hover-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(26, 39, 68, 0.95); /* Slightly more opaque for text contrast */
+            color: var(--white);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center; /* Centers all content */
+            padding: 2.5rem; /* More breathing room */
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            text-align: center;
+        }
+
+        .hover-overlay h3 {
+            font-size: 1.8rem; /* Larger Title */
+            margin-bottom: 1rem;
+            color: var(--white);
+        }
+
+        .product-card:hover .hover-overlay { opacity: 1; }
+        .product-card:hover img { transform: scale(1.1); }
+
+        .hover-overlay ul {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 2rem 0; /* Space below the list */
+            text-align: left;
+            display: block; /* Takes full width to help centering */
+            font-size: 1.1rem; /* Larger font for list items */
+        }
+
+        .hover-overlay ul li {
+            margin-bottom: 0.8rem;
+            padding-left: 2rem;
+            position: relative;
+            line-height: 1.4;
+        }
+
+        .hover-overlay ul li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--tps-amber);
+            font-weight: 800;
+        }
+
+        /* CARD CONTENT */
+        .card-info {
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .card-info h2 {
+            margin: 0;
+            font-size: 1.5rem;
+            color: var(--tps-navy);
+        }
+
+        .card-info .price-label {
+            display: block;
+            margin-top: 0.5rem;
+            color: var(--tps-mid-green);
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+
+        .overlay-btn {
+            background: var(--tps-mid-green);
+            color: var(--tps-cream);
+            padding: 1rem 2rem; /* Larger button */
+            border-radius: 999px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            display: inline-block;
+            transition: transform 0.2s ease;
+        }
+
+        @media (max-width: 900px) {
+    .products-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .hover-overlay h3 {
+        font-size: 1.5rem;
+    }
+}
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <a href="index.html" style="display: flex; gap: 0.5rem; align-items: center;">
+            <img src="./TPSlogobulb.png" alt="TPS Bulb Logo">
+            <img src="./TPSlogotext.png" alt="TPS Text Logo">
+            </a>
+        </div>
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="products.html">Products</a>
+            <a href="services.html">Services</a>
+            <a href="index.html#certifications">Certifications</a>
+            <a href="contact.html">Contact</a>
+            <a href="index.html#contact" class="btn-quote">Request a Quote</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <h1>Our Product Line</h1>
+            <h3>High-quality shipping and storage solutions for the Greater Toronto Area.</h3>
+        </section>
+
+        <div class="products-grid">
+            <article class="product-card">
+                <div class="image-container">
+                    <img src="./pallets.jpeg" alt="Wooden Pallets">
+                    <div class="hover-overlay">
+                        <h3>New & Recycled Pallets</h3>
+                        <ul>
+                            <li>Standard 48x40 Sizes</li>
+                            <li>2-Way & 4-Way Entry</li>
+                            <li>Heat Treated (ISPM-15)</li>
+                        </ul>
+                        <a href="pallets-detail.html" class="overlay-btn">More Information</a>
+                    </div>
+                </div>
+                <div class="card-info">
+                    <h2>Pallets</h2>
+                    <span class="price-label">Custom Sizes Available</span>
+                </div>
+            </article>
+
+                        <article class="product-card">
+                <div class="image-container">
+                    <img src="./woodcratescrop.jpeg" alt="Wood Crates">
+                    <div class="hover-overlay">
+                        <h3>Custom Shipping Crates</h3>
+                        <ul>
+                            <li>Heavy-Duty Protection</li>
+                            <li>Built to Spec</li>
+                            <li>International Shipping Ready</li>
+                        </ul>
+                        <a href="crates-detail.html" class="overlay-btn">More Information</a>
+                    </div>
+                </div>
+                <div class="card-info">
+                    <h2>Wood Crates</h2>
+                    <span class="price-label">Built for Strength</span>
+                </div>
+            </article>
+
+            <article class="product-card">
+                <div class="image-container">
+                    <img src="./lumber.jpeg" alt="Lumber">
+                    <div class="hover-overlay">
+                        <h3>Precision Cut Lumber</h3>
+                        <ul>
+                            <li>Freshly Cut to Size</li>
+                            <li>Hardwood & Softwood</li>
+                            <li>Bulk Delivery Available</li>
+                        </ul>
+                        <a href="lumber-detail.html" class="overlay-btn">More Information</a>
+                    </div>
+                </div>
+                <div class="card-info">
+                    <h2>Lumber Cut to Size</h2>
+                    <span class="price-label">Industrial Grade</span>
+                </div>
+            </article>
+
+            <article class="product-card">
+                <div class="image-container">
+                    <img src="./woodchips.png" alt="Wood Chips">
+                    <div class="hover-overlay">
+                        <h3>Sustainable Wood Chips</h3>
+                        <ul>
+                            <li>Bulk Delivery Available</li>
+                            <li>100% Recycled Content</li>
+                            <li>Biomass Applications</li>
+                        </ul>
+                        <a href="woodchips-detail.html" class="overlay-btn">More Information</a>
+                    </div>
+                </div>
+                <div class="card-info">
+                    <h2>Wood Chips</h2>
+                    <span class="price-label">Bulk Wholesale</span>
+                </div>
+            </article>
+
+        </div>
+    </main>
+
+    <script>
+        const header = document.querySelector('header');
+        let lastScrollY = window.scrollY;
+
+        window.addEventListener('scroll', () => {
+            const currentScrollY = window.scrollY;
+            if (currentScrollY > lastScrollY && currentScrollY > 80) {
+                header.classList.add('hidden');
+            } else {
+                header.classList.remove('hidden');
+            }
+            lastScrollY = currentScrollY;
+        });
+    </script>
+</body>
+</html>

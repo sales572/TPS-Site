@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services | Toronto Pallet Services</title>
+    <link rel="icon" type="image/x-icon" href="./TPSlogobulb.png">
+    <style>
+        :root {
+            --tps-navy: #1A2744;
+            --tps-forest-green: #1a3d08;
+            --tps-mid-green: #2D8A52;
+            --tps-amber: #C8922A;
+            --tps-cream: #F5F4F0;
+            --tps-charcoal: #2C2C2A;
+            --white: #FFFFFF;
+        }
+
+        * { box-sizing: border-box; }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+        body {
+            margin: 0;
+            padding-top: 0; /* REMOVED padding to fix the white gap */
+            font-family: 'Inter', sans-serif;
+            color: var(--tps-charcoal);
+            background: var(--white);
+            line-height: 1.7;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            color: var(--tps-charcoal);
+            background: var(--white);
+        }
+
+        header,
+        .hero {
+            font-family: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        /* HEADER BASE */
+header {
+    position: fixed;
+    inset: 0 0 auto;
+    z-index: 1000;
+    width: 100%;
+    background: rgba(255,255,255,0.96);
+    backdrop-filter: blur(12px);
+    border-bottom: 3px solid var(--tps-mid-green);
+    padding: 1rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* SCROLL EFFECT */
+header.hidden {
+    transform: translateY(-120%);
+    opacity: 0;
+}
+
+/* LOGO SECTION */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.logo img {
+    height: 65px;
+    width: auto;
+    display: block;
+}
+
+/* NAVIGATION LINKS */
+.nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.2rem; /* Exact spacing from index.html */
+    align-items: center;
+}
+
+.nav-links a {
+    color: var(--tps-navy);
+    font-weight: 700;
+    font-size: 0.95rem;
+    transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+    color: var(--tps-forest-green);
+}
+
+
+/* HEADER BUTTON EXCEPTION */
+.nav-links a.btn-quote {
+    color: var(--white) !important; /* Forces text to be white */
+    background: var(--tps-amber);
+    padding: 0.95rem 1.8rem;
+    border-radius: 999px;
+    font-weight: 700;
+    line-height: 1;
+    display: inline-block;
+    transition: transform 0.2s ease, filter 0.2s ease;
+    text-decoration: none;
+}
+
+.nav-links a.btn-quote:hover {
+    color: var(--white) !important; /* Keeps text white on hover */
+    transform: translateY(-2px);
+    filter: brightness(1.05);
+}
+/* HEADER BUTTON */
+.btn-quote {
+    display: inline-block;
+    line-height: 1; /* Fixes vertical alignment */
+    background: var(--tps-amber);
+    color: var(--white);
+    padding: 0.95rem 1.8rem;
+    border-radius: 999px;
+    font-weight: 700;
+    transition: transform 0.2s ease, filter 0.2s ease, background 0.2s ease;
+
+    /* HEADER BUTTON EXCEPTION */
+
+
+}
+
+.btn-quote:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.05);
+}
+
+        .service-section { padding: 80px 5%; }
+        .service-section:nth-child(even) { background: var(--tps-cream); }
+        .container { max-width: 1100px; margin: 0 auto; }
+        
+        .service-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        .service-text h2 { color: var(--tps-forest-green); font-size: 2.5rem; margin-bottom: 1.5rem; }
+        /* Container for the image to ensure consistent sizing */
+.service-image {
+    width: 100%;
+    max-width: 500px; /* Limits the box width */
+    aspect-ratio: 4 / 3; /* Forces a consistent shape (e.g., 4:3 or 1:1) */
+    overflow: hidden;
+    border-radius: 24px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+/* Makes the photo fill the box perfectly without stretching */
+.service-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Crops the image to fit the box instead of stretching it */
+    display: block;
+}
+
+        footer { background: var(--tps-navy); color: var(--white); padding: 2.5rem 5%; text-align: center; }
+
+    </style>
+</head>
+<body>
+  <header>
+        <div class="logo">
+            <a href="index.html" style="display: flex; gap: 0.5rem; align-items: center;">
+            <img src="./TPSlogobulb.png" alt="TPS Bulb Logo">
+            <img src="./TPSlogotext.png" alt="TPS Text Logo">
+            </a>
+        </div>
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="products.html">Products</a>
+            <a href="services.html">Services</a>
+            <a href="index.html#certifications">Certifications</a>
+            <a href="contact.html">Contact</a>
+            <a href="contact.html" class="btn-quote">Request a Quote</a>
+        </nav>
+    </header>
+
+    <div class="page-header">
+        <h1>Our Services</h1>
+    </div>
+
+    <section class="service-section">
+        <div class="container service-grid">
+            <div class="service-text">
+                <h2>Pallet Pickup</h2>
+                <p>Keep your facility clear and organized with our professional pallet pickup service. We provide scheduled or on-call removals for businesses across the GTA.</p>
+            </div>
+            <div class="service-image">
+                <img src="servpallet.jpeg" alt="Pallet pickup">
+            </div>
+        </div>
+    </section>
+
+    <section class="service-section">
+        <div class="container service-grid" style="direction: rtl;">
+            <div class="service-text" style="direction: ltr;">
+                <h2>Pallet Recycling</h2>
+                <p>Sustainability is at our core. We sort, repair, and dismantle pallets to ensure that 100% of the lumber is put back to use.</p>
+            </div>
+            <div class="service-image">
+                <img src="woodchips.png" alt="Recycling">
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p><strong>Toronto Pallet Services</strong> | 20+ Years Serving the GTA</p>
+    </footer>
+
+    <script>
+        const header = document.querySelector('header');
+        let lastScrollY = window.scrollY;
+        window.addEventListener('scroll', () => {
+            const currentScrollY = window.scrollY;
+            if (currentScrollY > lastScrollY && currentScrollY > 80) header.classList.add('hidden');
+            else header.classList.remove('hidden');
+            lastScrollY = currentScrollY;
+        });
+
+        const overlay = document.createElement('div');
+        overlay.classList.add('page-transition-overlay');
+        document.body.appendChild(overlay);
+        window.addEventListener('pageshow', () => {
+            overlay.classList.add('entering');
+            setTimeout(() => overlay.classList.remove('entering'), 350);
+        });
+        document.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                if (!this.href || this.href.startsWith('mailto:') || this.href.startsWith('tel:') || this.target === '_blank') return;
+                const targetUrl = new URL(this.href);
+                if (targetUrl.pathname !== window.location.pathname) {
+                    e.preventDefault();
+                    overlay.classList.add('active');
+                    setTimeout(() => window.location.href = this.href, 350);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
