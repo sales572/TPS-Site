@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Toronto Pallet Services | From forest to floor — and back again.</title>
     <link rel="icon" type="image/x-icon" href="./TPSlogobulb.png">
     <style>
@@ -772,6 +772,52 @@
                 font-size: clamp(3rem, 15vw, 4rem);
             }
         }
+
+        /* MOBILE HEADER FIX */
+@media (max-width: 768px) {
+    header {
+        padding: 0.5rem 3%; /* Reduce padding on sides */
+        height: 70px; /* Force a consistent height */
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logo img {
+        height: 40px !important; /* Scale down logos for mobile */
+        width: auto;
+    }
+
+    /* Hide the text links entirely on mobile until toggle is clicked */
+    .nav-links {
+        display: none; 
+        position: fixed;
+        top: 70px; /* Exactly below the header */
+        left: 0;
+        width: 100%;
+        background: white;
+        flex-direction: column;
+        padding: 1rem 0;
+        box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+    }
+
+    .nav-links.active {
+        display: flex; /* Show when toggled */
+    }
+
+    /* Prevent links from being too wide */
+    .nav-links a {
+        padding: 15px 5%;
+        width: 100%;
+        border-bottom: 1px solid #eee;
+    }
+
+    .btn-quote {
+        margin: 10px 5%;
+        text-align: center;
+        width: 90% !important;
+    }
+}
 
 /* Ensure the button is visible and clickable */
 .menu-toggle {
