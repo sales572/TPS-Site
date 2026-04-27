@@ -335,31 +335,32 @@
 <body>
 
    <header>
-        <div class="logo">
-            <a href="index.html" style="display: flex; gap: 0.5rem; align-items: center;">
+    <div class="logo">
+        <a href="index.html" style="display: flex; gap: 0.5rem; align-items: center;">
             <img src="./TPSlogobulb.png" alt="TPS Bulb Logo">
             <img src="./TPSlogotext.png" alt="TPS Text Logo">
-            </a>
-        </div>
-        <nav class="nav-links">
-    <a href="index.html">Home</a>
-    
-    <div class="dropdown">
-        <a href="products.html" class="dropbtn">Products <span style="font-size: 0.8rem;">▼</span></a>
-        <div class="dropdown-content">
-            <a href="pallets-detail.html">Pallets</a>
-            <a href="lumber-detail.html">Lumber</a>
-            <a href="woodchips-detail.html">Wood Chips</a>
-            <a href="crates-detail.html">Wood Crates</a>
-        </div>
+        </a>
     </div>
 
-    <a href="index.html#certifications">Certifications</a>
-    <a href="blog.html">Blog</a>
-    <a href="contact.html">Contact</a>
-    <a href="index.html#contact" class="btn-quote">Request a Quote</a>
-</nav>
-    </header>
+    <div class="menu-toggle" id="mobile-menu">☰</div>
+
+    <nav class="nav-links" id="nav-menu">
+        <a href="index.html">Home</a>
+        <div class="dropdown">
+            <a href="products.html" class="dropbtn">Products ▼</a>
+            <div class="dropdown-content">
+                <a href="pallets-detail.html">Pallets</a>
+                <a href="lumber-detail.html">Lumber</a>
+                <a href="woodchips-detail.html">Wood Chips</a>
+                <a href="crates-detail.html">Wood Crates</a>
+            </div>
+        </div>
+        <a href="index.html#certifications">Certifications</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+        <a href="index.html#contact" class="btn-quote">Request a Quote</a>
+    </nav>
+</header>
 
     <main>
         <section class="page-header">
@@ -460,6 +461,24 @@
             }
             lastScrollY = currentScrollY;
         });
+
+        // Mobile Menu Toggle Logic
+const menuToggle = document.getElementById('mobile-menu');
+const navMenu = document.getElementById('nav-menu');
+
+menuToggle.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+    // Change icon between ☰ and ✕
+    menuToggle.textContent = navMenu.classList.contains('active') ? '✕' : '☰';
+});
+
+// Close menu when clicking a link (especially for # anchors)
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+        navMenu.classList.remove('active');
+        menuToggle.textContent = '☰';
+    });
+});
     </script>
 </body>
 </html>

@@ -276,3 +276,77 @@
     
     .nav-links { display: none; } /* Consider adding a hamburger menu for mobile */
 }
+
+/* --- MOBILE OPTIMIZATION --- */
+@media (max-width: 768px) {
+    /* 1. Header & Navigation */
+    header {
+        padding: 0.8rem 5%;
+        justify-content: space-between;
+    }
+
+    .nav-links {
+        display: none; /* Hide default links on mobile */
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: white;
+        flex-direction: column;
+        padding: 2rem;
+        gap: 1.5rem;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        border-bottom: 3px solid var(--tps-mid-green);
+    }
+
+    .nav-links.active {
+        display: flex; /* Toggle via JS */
+    }
+
+    /* Handle Dropdowns on Mobile */
+    .dropdown-content {
+        position: static;
+        box-shadow: none;
+        border: none;
+        background: var(--tps-cream);
+        display: block; /* Show links within the list */
+        margin-top: 0.5rem;
+    }
+
+    /* 2. Layout Stacking */
+    .detail-container, 
+    .product-row, 
+    .info-grid,
+    .certifications-grid {
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
+    }
+
+    /* 3. Typography & Spacing */
+    .page-header h1 {
+        font-size: 2.2rem !important;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem !important;
+    }
+
+    .detail-image, .img-container {
+        height: auto !important;
+    }
+
+    body {
+        padding-top: 80px; /* Adjust for smaller header */
+    }
+
+    /* 4. Hamburger Menu Button (The "Icon") */
+    .menu-toggle {
+        display: block !important;
+        cursor: pointer;
+        font-size: 1.5rem;
+        color: var(--tps-navy);
+    }
+}
+
+/* Hide toggle by default on desktop */
+.menu-toggle { display: none; }
