@@ -773,54 +773,58 @@
             }
         }
 
-        /* --- HAMBURGER STYLING --- */
+/* Ensure the button is visible and clickable */
 .menu-toggle {
     display: none; /* Hidden on Desktop */
-    flex-direction: column;
-    justify-content: space-between;
-    width: 30px;
-    height: 21px;
+    background: transparent;
+    border: none;
+    padding: 10px;
+    margin-right: -10px; /* Aligns with container edge */
     cursor: pointer;
-    z-index: 1001;
+    flex-direction: column;
+    gap: 5px;
+    z-index: 9999; /* Higher than everything else */
+    -webkit-tap-highlight-color: transparent; /* Removes the grey box on tap */
 }
 
 .menu-toggle .bar {
+    display: block;
+    width: 25px;
     height: 3px;
-    width: 100%;
-    background-color: var(--tps-navy);
-    border-radius: 10px;
-    transition: all 0.3s ease;
+    background-color: #1A2744; /* TPS Navy */
+    border-radius: 3px;
+    transition: 0.3s;
 }
 
 @media (max-width: 768px) {
     .menu-toggle {
-        display: flex; /* Shown on Mobile */
+        display: flex; /* Force display on mobile */
     }
 
     .nav-links {
-        display: none; /* Default Hidden */
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background: white;
+        display: flex;
         flex-direction: column;
-        padding: 2rem;
-        gap: 1.5rem;
-        border-bottom: 3px solid var(--tps-mid-green);
-        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        position: fixed; /* Fixed is better for iOS scrolling */
+        top: 0;
+        right: -100%; /* Start off-screen */
+        width: 80%; /* Takes up 80% of screen */
+        height: 100vh;
+        background: white;
+        padding: 100px 2rem 2rem;
+        transition: 0.4s ease-in-out;
+        z-index: 9998;
+        box-shadow: -10px 0 20px rgba(0,0,0,0.1);
     }
 
     .nav-links.active {
-        display: flex; /* Triggered by JS */
+        right: 0; /* Slide in from right */
     }
-
-    /* Transform Hamburger to 'X' when active */
+    
+    /* X Animation */
+    .menu-toggle.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
     .menu-toggle.active .bar:nth-child(2) { opacity: 0; }
-    .menu-toggle.active .bar:nth-child(1) { transform: translateY(9px) rotate(45deg); }
-    .menu-toggle.active .bar:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+    .menu-toggle.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 }
-
     </style>
 </head>
 <body>
@@ -832,27 +836,15 @@
         </a>
     </div>
 
-    <div class="menu-toggle" id="mobile-menu" aria-label="Toggle navigation">
+    <button class="menu-toggle" id="mobile-menu" aria-label="Open Menu">
         <span class="bar"></span>
         <span class="bar"></span>
         <span class="bar"></span>
-    </div>
+    </button>
 
     <nav class="nav-links" id="nav-menu">
         <a href="index.html">Home</a>
-        <div class="dropdown">
-            <a href="products.html" class="dropbtn">Products ▼</a>
-            <div class="dropdown-content">
-                <a href="pallets-detail.html">Pallets</a>
-                <a href="lumber-detail.html">Lumber</a>
-                <a href="woodchips-detail.html">Wood Chips</a>
-                <a href="crates-detail.html">Wood Crates</a>
-            </div>
-        </div>
-        <a href="index.html#certifications">Certifications</a>
-        <a href="blog.html">Blog</a>
-        <a href="contact.html">Contact</a>
-        <a href="index.html#contact" class="btn-quote">Request a Quote</a>
+        <a href="contact.html" class="btn-quote">Request a Quote</a>
     </nav>
 </header>
 
@@ -1138,21 +1130,29 @@ document.querySelectorAll('a').forEach(link => {
     });
 });
 
-// Mobile Menu Toggle Logic
-const menuToggle = document.getElementById('mobile-menu');
-const navMenu = document.getElementById('nav-menu');
+document.addEventListener('DOMContentLoaded', () => {
+    const menuToggle = document.getElementById('mobile-menu');
+    const navMenu = document.getElementById('nav-menu');
 
-menuToggle.addEventListener('click', () => {
-    navMenu.classList.toggle('active');
-    // Change icon between ☰ and ✕
-    menuToggle.textContent = navMenu.classList.contains('active') ? '✕' : '☰';
-});
+    if (menuToggle) {
+        // Function to toggle
+        const toggleMenu = (e) => {
+            e.preventDefault(); // Prevents double-triggering on iOS
+            navMenu.classList.toggle('active');
+            menuToggle.classList.toggle('active');
+        };
 
-// Close menu when clicking a link (especially for # anchors)
-document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', () => {
-        navMenu.classList.remove('active');
-        menuToggle.textContent = '☰';
+        // Attach to both click and touchstart for iOS
+        menuToggle.addEventListener('click', toggleMenu);
+        menuToggle.addEventListener('touchstart', toggleMenu, {passive: false});
+    }
+
+    // Close menu when a link is clicked
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+            menuToggle.classList.remove('active');
+        });
     });
 });
     </script>
