@@ -902,6 +902,206 @@
     color: rgba(255, 255, 255, 0.5);
   }
 
+  .hero-banner {
+            background: linear-gradient(135deg, #0a1128 0%, #1a3d08 100%);
+            padding: 80px 20px;
+            text-align: center;
+            color: white;
+        }
+
+        .post-hero {
+            background: linear-gradient(135deg, #0a1128 0%, #1a3d08 100%);
+            padding: 60px 20px;
+            text-align: center;
+            color: white;
+        }
+
+        /* NAVIGATION & BUTTONS */
+        nav {
+            padding: 20px;
+            background: white;
+            border-bottom: 1px solid #eee;
+            text-align: center;
+        }
+
+        .cta-button {
+            background: #d4a017;
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 18px;
+            font-weight: 700;
+            border-radius: 30px;
+            cursor: pointer;
+            font-family: 'Barlow', sans-serif;
+            transition: background 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background: #b88a14;
+        }
+
+        /* FILTER PILLS */
+        .filter-container {
+            max-width: 1100px;
+            margin: 40px auto;
+            text-align: center;
+            padding: 0 20px;
+            margin-top: 150px;
+        }
+
+        .filter-pill {
+            display: inline-block;
+            padding: 10px 24px;
+            margin: 5px;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+
+        .filter-pill.active {
+            background: #1a3d08;
+            color: white;
+            border-color: #1a3d08;
+        }
+
+        /* BLOG GRID & CARDS */
+        .blog-grid {
+            max-width: 1200px;
+            margin: 0 auto 80px;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .post-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .card-banner {
+            height: 180px;
+            background: #1a3d08;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        .card-banner h3 {
+            color: white;
+            font-size: 20px;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        .tps-mark {
+            position: absolute;
+            bottom: 10px;
+            right: 15px;
+            color: #d4a017;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .card-content {
+            padding: 24px;
+            flex-grow: 1;
+        }
+
+        .category-tag {
+            color: #d4a017;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: block;
+            margin-bottom: 12px;
+        }
+
+        .card-title {
+            font-size: 22px;
+            color: #1a2332;
+            margin: 0 0 12px 0;
+            font-weight: 600;
+        }
+
+        .excerpt {
+            color: #666;
+            font-size: 15px;
+            line-height: 1.5;
+        }
+
+        .publish-date {
+            color: #999;
+            font-size: 13px;
+            margin-top: 20px;
+        }
+
+        /* ARTICLE CONTENT */
+        .article-body {
+            max-width: 720px;
+            margin: 60px auto;
+            padding: 0 20px;
+            font-size: 17px;
+        }
+
+        .article-body h2 {
+            font-size: 28px;
+            color: #1a3d08;
+            font-weight: 600;
+            margin-top: 40px;
+        }
+
+        .article-body h3 {
+            font-size: 20px;
+            color: #0a1128;
+            font-weight: 600;
+            margin-top: 30px;
+        }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 60px;
+            color: #d4a017;
+            text-decoration: none;
+            border-bottom: 2px solid #d4a017;
+            font-weight: 600;
+            width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* CTA SECTION */
+        .cta-section {
+            background: linear-gradient(135deg, #0a1128 0%, #1a3d08 100%);
+            padding: 60px 20px;
+            text-align: center;
+            color: white;
+        }
+
+        /* RESPONSIVE TABLET FIX */
+        @media (max-width: 992px) {
+            .blog-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 600px) {
+            .blog-grid { grid-template-columns: 1fr; }
+            .hero-banner h1 { font-size: 32px; }
+        }
+
     </style>
 </head>
 <body>
@@ -912,6 +1112,12 @@
             <img src="./TPSlogotext.png" alt="TPS Text Logo">
         </a>
     </div>
+
+    <button class="menu-toggle" id="mobile-menu" aria-label="Open Menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </button>
 
     <nav class="nav-links" id="nav-menu">
         <a href="index.html">Home</a>
@@ -927,8 +1133,63 @@
         <a href="aboutus.html">About Us</a>
         <a href="blog.html">Blog</a>
         <a href="contact.html">Contact</a>
+        <a href="contact.html" class="btn-quote">Get a Free Quote</a>
     </nav>
 </header>
+
+    <div class="filter-container">
+            <div class="filter-pill active" onclick="filterPosts('all', this)">All Posts</div>
+            <div class="filter-pill" onclick="filterPosts('Industry Insights', this)">Industry Insights</div>
+            <div class="filter-pill" onclick="filterPosts('Buyer\'s Guides', this)">Buyer's Guides</div>
+            <div class="filter-pill" onclick="filterPosts('Behind the Scenes', this)">Behind the Scenes</div>
+        </div>
+
+        <main class="blog-grid" id="main-grid">
+            <article class="post-card" data-category="Industry Insights">
+                <div class="card-banner">
+                    <h3>What is ISPM-15? A Guide to Heat-Treated Pallets</h3>
+                    <span class="tps-mark">TPS</span>
+                </div>
+                <div class="card-content">
+                    <span class="category-tag">Industry Insights</span>
+                    <h2 class="card-title">What is ISPM-15? A Guide to Heat-Treated Pallets for Export</h2>
+                    <p class="excerpt">If you're shipping internationally, your pallets need to meet ISPM-15 — or your shipment could be rejected.</p>
+                    <p class="publish-date">April 30, 2026</p>
+                </div>
+            </article>
+
+            <article class="post-card" data-category="Buyer's Guides">
+                <div class="card-banner">
+                    <h3>Standard 48x40 vs Custom Pallets: How to Choose</h3>
+                    <span class="tps-mark">TPS</span>
+                </div>
+                <div class="card-content">
+                    <span class="category-tag">Buyer's Guides</span>
+                    <h2 class="card-title">Standard 48x40 vs Custom Pallets: How to Choose</h2>
+                    <p class="excerpt">The 48x40 pallet is the most common size for good reason — but it isn't always the right choice.</p>
+                    <p class="publish-date">April 30, 2026</p>
+                </div>
+            </article>
+
+            <article class="post-card" data-category="Buyer's Guides">
+                <div class="card-banner">
+                    <h3>5 Questions to Ask Before Choosing a Pallet Supplier</h3>
+                    <span class="tps-mark">TPS</span>
+                </div>
+                <div class="card-content">
+                    <span class="category-tag">Buyer's Guides</span>
+                    <h2 class="card-title">5 Questions to Ask Before Choosing a Pallet Supplier</h2>
+                    <p class="excerpt">Pallets are commodity-priced but operationally critical — a bad supplier costs more than the savings.</p>
+                    <p class="publish-date">April 30, 2026</p>
+                </div>
+            </article>
+        </main>
+    </div>
+
+    <section class="cta-section">
+        <h2 style="font-size: 28px; margin-bottom: 20px;">Need pallets, crates, or lumber for your business?</h2>
+        <button class="cta-button" onclick="alert('Quote Request Sent!')">Request a Quote</button>
+    </section>
 
     <footer class="tps-footer">
   <div class="tps-footer-inner">
