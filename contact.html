@@ -315,6 +315,20 @@
             .info-card-horizontal { grid-template-columns: 1fr; }
             .contact-hero { padding-top: 120px; }
         }
+
+        @media (max-width: 768px) {
+    .nav-links {
+        display: flex !important; /* Makes links visible even without the toggle */
+        position: relative !important;
+        top: 0 !important;
+        right: 0 !important;
+        width: auto !important;
+        flex-direction: row !important; /* Keep them in a row or stack as needed */
+        box-shadow: none !important;
+    }
+}
+
+
     </style>
 </head>
 <body>
@@ -329,12 +343,10 @@
         </a>
     </div>
 
-    <div class="menu-toggle" id="mobile-menu">☰</div>
-
     <nav class="nav-links" id="nav-menu">
         <a href="index.html">Home</a>
         <div class="dropdown">
-            <a href="products.html" class="dropbtn">Products ▼</a>
+            <a href="products.html" class="dropbtn">Products</a>
             <div class="dropdown-content">
                 <a href="pallets-detail.html">Pallets</a>
                 <a href="lumber-detail.html">Lumber</a>
