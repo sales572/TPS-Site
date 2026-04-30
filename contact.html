@@ -332,6 +332,139 @@
     }
 }
 
+  .tps-footer {
+    background-color: #1a3d08;        /* Your dark forest green */
+    color: #ffffff;                    /* White text */
+    font-family: 'Barlow', sans-serif; /* Your brand font */
+    padding: 48px 24px 20px 24px;      /* Top, right, bottom, left spacing */
+  }
+
+  /* Wrapper that keeps the footer content from stretching too wide on big screens */
+  .tps-footer-inner {
+    max-width: 1200px;                 /* Don't let it get wider than 1200px */
+    margin: 0 auto;                    /* Center it on the page */
+  }
+
+  /* The 3-column grid layout */
+  .tps-footer-columns {
+    display: grid;                                                /* Use CSS grid */
+    grid-template-columns: repeat(3, 1fr);                        /* 3 equal columns */
+    gap: 48px;                                                    /* Space between columns */
+    padding-bottom: 32px;                                         /* Space before the bottom line */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);           /* Faint dividing line */
+  }
+
+  /* On screens narrower than 768px (tablets and phones), stack the columns */
+  @media (max-width: 768px) {
+    .tps-footer-columns {
+      grid-template-columns: 1fr;     /* 1 column instead of 3 */
+      gap: 32px;                       /* A bit less space when stacked */
+    }
+  }
+
+  /* Column 1: Company name and tagline */
+  .tps-company-name {
+    font-size: 18px;
+    font-weight: 600;                  /* Bold */
+    margin: 0 0 8px 0;                 /* Spacing below */
+    color: #ffffff;
+    text-align: center;
+  }
+
+  .tps-tagline {
+    font-size: 14px;
+    color: #c0dd97;                    /* Lighter green accent */
+    margin: 0 0 12px 0;
+    font-weight: 500;
+        text-align: center;
+
+  }
+
+  .tps-description {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);   /* Slightly faded white */
+    line-height: 1.6;                  /* Spacing between lines of text */
+    margin: 0;
+        text-align: center;
+
+  }
+
+  /* The little column headings: "CONTACT" and "QUICK LINKS" */
+  .tps-footer-heading {
+    font-size: 12px;
+    font-weight: 600;
+    color: #c0dd97;
+    letter-spacing: 1px;               /* Spread letters apart slightly */
+    text-transform: uppercase;
+    margin: 0 0 16px 0;
+        text-align: center;
+
+  }
+
+  /* Contact details (address, phone, email) */
+  .tps-contact-line {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.7;
+    margin: 0 0 6px 0;
+        text-align: center;
+
+  }
+
+  /* Make phone number and email clickable links */
+  .tps-contact-line a {
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;             /* No underline by default */
+    transition: color 0.2s;            /* Smooth color change on hover */
+  }
+
+  .tps-contact-line a:hover {
+    color: #c0dd97;                    /* Light green on hover */
+  }
+
+  .tps-hours {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.6);
+    margin: 8px 0 0 0;
+        text-align: center;
+
+  }
+
+  /* The list of quick links */
+  .tps-links-list {
+    list-style: none;                  /* Remove bullet points */
+    padding: 0;
+    margin: 0;
+        text-align: center;
+
+  }
+
+  .tps-links-list li {
+    margin-bottom: 8px;
+        text-align: center;
+
+  }
+
+  .tps-links-list a {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+    transition: color 0.2s;
+        text-align: center;
+
+  }
+
+  .tps-links-list a:hover {
+    color: #c0dd97;
+  }
+
+  /* The bottom line with the copyright text */
+  .tps-footer-bottom {
+    padding-top: 20px;
+    text-align: center;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.5);
+  }
 
     </style>
 </head>
@@ -427,10 +560,52 @@
         </div>
     </main>
 
-    <footer>
-        <p><strong>Toronto Pallet Services</strong> | 20+ Years Serving the GTA</p>
-        <p>Email: <a href="mailto:sales@tpspallets.com">sales@tpspallets.com</a> | Web: <a href="https://torontopalletservices.com">torontopalletservices.com</a> | Tel: <a href="tel:4162320339">416-232-0339</a></p>
-    </footer>
+        <footer class="tps-footer">
+  <div class="tps-footer-inner">
+    <div class="tps-footer-columns">
+
+      <div>
+        <h3 class="tps-company-name">Toronto Pallet Services</h3>
+        <p class="tps-tagline">20+ Years Serving the GTA</p>
+        <p class="tps-description">
+          Pallets, crates, lumber, and wood chips — built locally in Etobicoke.
+        </p>
+      </div>
+
+      <div>
+        <h4 class="tps-footer-heading">Contact</h4>
+        <p class="tps-contact-line">
+          10 N Queen St<br>
+          Etobicoke, ON M8Z 2C4
+        </p>
+        <p class="tps-contact-line">
+          <a href="tel:4162320339">416-232-0339</a>
+        </p>
+        <p class="tps-contact-line">
+          <a href="mailto:sales@tpspallets.com">sales@tpspallets.com</a>
+        </p>
+        <p class="tps-hours">Mon – Fri: 8 am – 5 pm</p>
+      </div>
+
+      <div>
+        <h4 class="tps-footer-heading">Quick Links</h4>
+        <ul class="tps-links-list">
+          <li><a href="/">Home</a></li>
+          <li><a href="/products">Products</a></li>
+          <li><a href="/about">About Us</a></li>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/quote">Request a Quote</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="tps-footer-bottom">
+      © 2026 Toronto Pallet Services. All rights reserved.
+    </div>
+
+  </div>
+</footer>
 
     <script>
         // 1. HEADER SCROLL LOGIC - Matches Index
