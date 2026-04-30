@@ -190,15 +190,15 @@
 
 /* --- HERO / PAGE HEADERS --- */
 .page-header {
-    background: var(--tps-cream);
-    color: var(--tps-forest-green);
+    background: linear-gradient(135deg, var(--tps-navy) 0%, var(--tps-forest-green) 100%);
+    color: var(--white);
     padding: 4rem 5%;
     text-align: center;
     margin-bottom: 3rem;
 }
 
 .page-header h1 { font-size: 3rem; margin: 0; font-weight: 800; margin-top: 100px;}
-.page-header h3 { color: var(--tps-navy); font-weight: 500; margin-top: 10px; }
+.page-header h3 { color: var(--white); font-weight: 500; margin-top: 10px; }
 
 /* --- PRODUCT DETAIL LAYOUT --- */
 .detail-container {
