@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Toronto's Custom Recycled Pallet Experts | Just Skids</title>
+<meta name="description" content="Toronto's recycled pallet experts. Recycled and combo pallets, 48x40 or custom built to your spec. Pickup, repair, and recycling drop-off across the GTA.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/x-icon" href="justskidslogo-symbol - Edited.png">
+
+<style>
+
+  :root {
+    /* "Natural Circularity" Palette */
+    --skids-green: #4A5D45;      /* Forest Moss */
+    --skids-green-dark: #374633; /* Deep Moss (for dark cards) */
+    --skids-tan: #D6C7A1;        /* Kraft Paper */
+    --skids-clay: #B36A5E;       /* Canyon Clay (Primary Action) */
+    --skids-clay-dark: #965349;  /* Dark Canyon Clay (Hover) */
+    --skids-bg: #F9F8F4;         /* Oatmeal (Main Background) */
+    --skids-leaf: #A8B5A2;       /* Dusty Leaf (Accents/Icons) */
+    --skids-text: #363D40;       /* Charcoal Slate (Body Text) */
+    --skids-border: #DDE1D7;     /* Soft border color */
+    --white: #FFFFFF;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  
+  html { 
+    scroll-behavior: smooth; 
+    scroll-padding-top: 80px; 
+  }
+  
+  body {
+    font-family: 'Barlow', 'Inter', sans-serif;
+    color: var(--skids-text);
+    line-height: 1.6;
+    background: var(--skids-bg);
+  }
+
+  a { color: inherit; text-decoration: none; }
+
+  /* ================================================================
+     TOP HEADER (Sticky)
+     ================================================================ */
+  header {
+    position: fixed;
+    inset: 0 0 auto;
+    z-index: 1000;
+    width: 100%;
+    /* Oatmeal background with slight blur/transparency */
+    background: rgba(249, 248, 244, 0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 3px solid var(--skids-green);
+    padding: 1rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+
+  header.hidden {
+    transform: translateY(-120%);
+    opacity: 0;
+  }
+
+  .logo { display: flex; align-items: center; gap: 0.5rem; }
+  .logo img { height: 65px; width: auto; display: block; }
+  /* Override inline styling to force new palette */
+  .logo span { font-size: 2rem !important; font-weight: 700 !important; color: var(--skids-green) !important; margin-top: 8px !important; }
+
+  .nav-links { display: flex; flex-wrap: wrap; gap: 1.2rem; align-items: center; }
+  .nav-links a {
+    color: var(--skids-text);
+    font-weight: 700;
+    font-size: 0.95rem;
+    transition: color 0.2s ease;
+  }
+  .nav-links a:hover { color: var(--skids-green); }
+
+  /* ================================================================
+     SECTION 1 — HERO
+     ================================================================ */
+  .skids-hero {
+    /* Updated gradient overlay using Forest Moss & Charcoal Slate */
+    background:
+      linear-gradient(rgba(74, 93, 69, 0.85), rgba(54, 61, 64, 0.8)),
+      url('hero-warehouse.jpg') center/cover no-repeat;
+    color: var(--white);
+    padding: 110px 24px;
+    text-align: center;
+    margin-top: 45px;
+  }
+  
+  .skids-hero-inner { max-width: 800px; margin: 0 auto; }
+  
+  .skids-tps-tag {
+    display: inline-block;
+    background: var(--skids-tan);
+    color: var(--skids-green-dark);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 28px;
+    padding: 8px 18px;
+    border-radius: 50px;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .skids-tps-tag:hover { background: var(--white); transform: translateY(-1px); }
+  .skids-tps-tag::after { content: " \2192"; margin-left: 4px; opacity: 0.6; }
+  
+  .skids-hero h1 { font-size: 48px; font-weight: 600; margin-bottom: 20px; letter-spacing: -0.5px; }
+  .skids-hero p { font-size: 19px; color: rgba(255, 255, 255, 0.9); line-height: 1.6; }
+  
+  @media (max-width: 600px) {
+    .skids-hero h1 { font-size: 32px; }
+    .skids-hero p { font-size: 16px; }
+    .skids-hero { padding: 70px 20px; }
+    .skids-tps-tag { font-size: 11px; padding: 7px 16px; letter-spacing: 0.8px; }
+  }
+
+  /* ================================================================
+     GENERAL SECTION STYLES
+     ================================================================ */
+  .skids-section { padding: 80px 24px; }
+  .skids-section-inner { max-width: 1100px; margin: 0 auto; }
+  .skids-section h2 { font-size: 32px; font-weight: 600; color: var(--skids-tan); margin-bottom: 24px; text-align: center; }
+  .skids-section .lead { font-size: 17px; color: var(--skids-tan); line-height: 1.7; margin-bottom: 18px; }
+  #offer { font-size: 32px; font-weight: 600; color: var(--skids-clay); margin-bottom: 24px; text-align: center; }
+
+  /* SECTION 2 — ABOUT (White background for contrast) */
+  #about { background: var(--skids-green); }
+  .about-skids-text { max-width: 720px; margin: 0 auto; text-align: center; }
+
+  /* ================================================================
+     SECTION 3 — PRODUCTS
+     ================================================================ */
+  /* Keeps the Oatmeal background */
+  #products { background: var(--skids-bg); }
+  
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-top: 40px;
+  }
+  @media (max-width: 700px) { .products-grid { grid-template-columns: 1fr; } }
+  
+  .product-card {
+    background: var(--white);
+    border: 1px solid var(--skids-border);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+    display: flex; flex-direction: column;
+  }
+  .product-card:hover { border-color: var(--skids-green); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.05); }
+  
+  .product-image { width: 100%; height: 220px; background-color: var(--skids-border); background-size: cover; background-position: center; }
+  .product-card-body { padding: 24px 28px 28px; display: flex; flex-direction: column; flex: 1; }
+  .product-card h3 { font-size: 18px; font-weight: 600; color: var(--skids-green); margin-bottom: 12px; }
+  .product-card p { font-size: 14px; color: var(--skids-text); line-height: 1.65; margin-bottom: 18px; }
+
+  /* CENTERED BUTTON FIX */
+  .product-btn-container {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100% !important;
+    margin-top: 50px !important;
+  }
+
+  .product-quote-btn {
+    display: inline-block;
+    background: var(--skids-clay);
+    color: var(--white);
+    padding: 12px 32px;
+    border-radius: 50px;
+    font-size: 20px; /* Reduced from 30px to look cleaner */
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    border: none;
+    box-shadow: 0 4px 12px rgba(179, 106, 94, 0.3);
+  }
+  .product-quote-btn:hover { background: var(--skids-clay-dark); transform: translateY(-2px); color: var(--white); }
+
+  /* ================================================================
+     SECTION 4 — SERVICES (New Forest Moss Banner Theme)
+     ================================================================ */
+  #services {
+    background: var(--skids-green);
+    color: var(--white);
+  }
+  #services h2 { color: var(--skids-tan); } /* Heading becomes Kraft Paper */
+  
+  .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 40px; }
+  @media (max-width: 800px) { .services-grid { grid-template-columns: 1fr; } }
+  
+  .service-card {
+    background: var(--skids-green-dark);
+    border: 1px solid rgba(214, 199, 161, 0.15); /* Faint Kraft border */
+    border-radius: 12px;
+    padding: 28px;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .service-card:hover { border-color: var(--skids-tan); transform: translateY(-2px); }
+  
+  .service-icon {
+    width: 44px; height: 44px;
+    background: var(--skids-leaf);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center; margin-bottom: 16px;
+  }
+  .service-icon svg { stroke: var(--skids-green-dark); }
+  .service-card h3 { font-size: 17px; font-weight: 600; color: var(--skids-tan); margin-bottom: 10px; }
+  .service-card p { font-size: 14px; color: rgba(255,255,255,0.85); line-height: 1.65; }
+
+  /* ================================================================
+     SECTION 5 — CTA / QUOTE FORM (Subtle Kraft Tint Banner)
+     ================================================================ */
+  .cta-section {
+    background: rgba(214, 199, 161, 0.2); /* Very light wash of Kraft Paper */
+    padding: 80px 24px;
+  }
+  .cta-inner { max-width: 1000px; margin: 0 auto; }
+  .cta-header { text-align: center; margin-bottom: 48px; }
+  .cta-section h2 { color: var(--skids-green); margin-bottom: 14px; font-size: 32px; font-weight: 600; }
+  .cta-header p { font-size: 17px; color: var(--skids-text); line-height: 1.6; max-width: 600px; margin: 0 auto; }
+  
+  .cta-grid { display: grid; grid-template-columns: 1fr 1.6fr; gap: 48px; align-items: start; }
+  @media (max-width: 800px) { .cta-grid { grid-template-columns: 1fr; gap: 36px; } }
+
+  /* Contact info (left column) */
+  .contact-block { margin-bottom: 24px; }
+  .contact-label { font-size: 11px; font-weight: 700; color: var(--skids-green); letter-spacing: 1.2px; text-transform: uppercase; margin-bottom: 6px; }
+  .contact-value { font-size: 15px; color: var(--skids-text); font-weight: 600; line-height: 1.5; display: block; }
+  a.contact-value:hover { color: var(--skids-clay); }
+
+  /* Form (right column) */
+  .cta-form { background: transparent; padding: 0; }
+  .form-row { margin-bottom: 14px; }
+  .form-row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 480px) { .form-row-2 { grid-template-columns: 1fr; } }
+  
+  .form-field { display: flex; flex-direction: column; }
+  .form-field label { font-size: 12px; font-weight: 700; color: var(--skids-green); letter-spacing: 0.6px; text-transform: uppercase; margin-bottom: 6px; }
+  .form-field .optional { font-weight: 400; color: var(--skids-text); opacity: 0.7; text-transform: none; letter-spacing: 0; }
+  
+  .form-field input, .form-field select, .form-field textarea {
+    font-family: 'Barlow', sans-serif;
+    font-size: 14px;
+    color: var(--skids-text);
+    padding: 12px 14px;
+    border: 1px solid var(--skids-border);
+    border-radius: 6px;
+    background: var(--white);
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .form-field input:focus, .form-field select:focus, .form-field textarea:focus {
+    border-color: var(--skids-green);
+    box-shadow: 0 0 0 3px rgba(74, 93, 69, 0.12);
+  }
+  .form-field textarea { resize: vertical; min-height: 90px; }
+  .form-field select { cursor: pointer; }
+  
+  .form-submit {
+    width: 100%;
+    background: var(--skids-clay);
+    color: var(--white);
+    border: none;
+    padding: 14px;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 700;
+    font-family: 'Barlow', sans-serif;
+    cursor: pointer;
+    margin-top: 12px;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .form-submit:hover:not(:disabled) { background: var(--skids-clay-dark); transform: translateY(-1px); }
+
+  /* ================================================================
+     FOOTER (Dark Slate)
+     ================================================================ */
+  .footer {
+    padding: 32px 24px;
+    background: var(--skids-text); /* Charcoal Slate */
+    color: var(--skids-tan);       /* Kraft Paper text */
+    text-align: center;
+    font-size: 14px;
+  }
+  /* ================================================================
+     MODAL & BLUR EFFECT
+     ================================================================ */
+  /* ================================================================
+     ANIMATED MODAL
+     ================================================================ */
+  
+    body.modal-open {
+    overflow: hidden; /* Prevents background scrolling */
+  }
+
+  .product-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(54, 61, 64, 0.4); /* Charcoal Slate with transparency */
+    backdrop-filter: blur(8px);
+    z-index: 2000;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+     .product-modal {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 700px;
+    height: 100vh;
+    background: var(--white);
+    z-index: 2001;
+    display: none; /* Controlled by .active */
+    flex-direction: column;
+    padding: 60px 40px;
+    box-shadow: -10px 0 30px rgba(0,0,0,0.1);
+    overflow-y: auto;
+    
+    /* Animation settings */
+    opacity: 0;
+  }
+
+  .product-modal.active {
+    display: flex;
+    opacity: 1;
+    animation: modalSlideUp 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+  }
+
+  /* Quick Entrance Animation */
+  @keyframes modalSlideUp {
+    0% {
+      transform: translate(-50%, 20px);
+      opacity: 0;
+    }
+    100% {
+      transform: translate(-50%, 0);
+      opacity: 1;
+    }
+  }
+
+  /* Ensure the overlay fades in smoothly too */
+  .product-overlay.active {
+    display: block;
+    opacity: 1;
+    animation: fadeIn 0.3s ease forwards;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  .product-overlay.active, .product-modal.active {
+    display: flex;
+    opacity: 1;
+  }
+
+  .modal-close {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    background: none;
+    border: none;
+    font-size: 40px;
+    color: var(--skids-green);
+    cursor: pointer;
+    line-height: 1;
+  }
+
+  /* Modal Content Styling */
+  .modal-img {
+    width: 100%;
+    height: 300px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 12px;
+    margin-bottom: 30px;
+  }
+
+  .modal-title { font-size: 32px; color: var(--skids-green); margin-bottom: 15px; }
+  .modal-desc { font-size: 18px; color: var(--skids-text); margin-bottom: 30px; border-bottom: 1px solid var(--skids-border); padding-bottom: 30px; }
+  .modal-details h4 { color: var(--skids-clay); text-transform: uppercase; font-size: 14px; margin-bottom: 10px; }
+  .modal-details ul { list-style: none; margin-bottom: 40px; }
+  .modal-details li { margin-bottom: 8px; padding-left: 20px; position: relative; }
+  .modal-details li::before { content: "✓"; position: absolute; left: 0; color: var(--skids-green); font-weight: bold; }
+
+  /* Make cards look clickable */
+  .product-card { cursor: pointer; }
+</style>
+</head>
+<body>
+
+
+<!-- ================================================================
+     TOP HEADER (sticky on scroll)
+     COMMENT TO CODER:
+       - The logo file shown here (justskidslogo-symbol.png) is the
+         CROPPED version with only the recycle symbol (no wordmark).
+         Use that — the wordmark is duplicated by the brand name text.
+       - The TPS link in the hero badge below points to tpspallets.com.
+         Verify that's the correct URL.
+     ================================================================ -->
+<header>
+    <div class="logo">
+        <a href="index.html" style="display: flex; gap: 0.5rem; align-items: center;">
+            <img src="justskidslogo-symbol - Edited.png" alt="TPS Text Logo">
+            <span style="font-size: 2rem; font-weight: 700; color: var(--tps-forest-green); margin-top: 8px;">Just Skids</span>
+        </a>
+    </div>
+
+    <button class="menu-toggle" id="mobile-menu" aria-label="Open Menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </button>
+
+    <nav class="nav-links" id="nav-menu">
+        <a href="index.html">Home</a>
+        <a href="index.html#about">About Us</a>
+        <a href="index.html#cta">Contact</a>
+    </nav>
+</header>
+
+
+<!-- ================================================================
+     SECTION 1 — HERO
+     COMMENT TO CODER:
+       - Background image file: hero-warehouse.jpg (place in same folder)
+       - Green overlay is applied via CSS gradient on top of the photo
+     ================================================================ -->
+<section class="skids-hero">
+  <div class="skids-hero-inner">
+    <a href="https://torontopalletservices.com" class="skids-tps-tag" target="_blank" rel="noopener noreferrer">Part of the Toronto Pallet Services Network</a>
+    <h1>Toronto&rsquo;s Recycled Pallet Experts</h1>
+    <p>Recycled and combo pallets, 48&times;40 or built to your spec.</p>
+  </div>
+</section>
+
+
+<!-- ================================================================
+     SECTION 2 — ABOUT
+     ================================================================ -->
+<section class="skids-section" id="about">
+  <div class="skids-section-inner">
+    <div class="about-skids-text">
+      <h2>Pick up. Repair. Recycle. Done.</h2>
+      <p class="lead">We are dedicated to providing the Greater Toronto Area with reliable, cost-effective pallet solutions that bridge the gap between efficiency and sustainability. Through professional pickup, expert repair, and accessible recycling, we keep local supply chains moving and wood waste out of landfills.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ================================================================
+     SECTION 3 — PRODUCTS (4 cards)
+     COMMENT TO CODER:
+       - Each card has a product-image div with inline background-image style.
+       - Replace the 4 placeholder image filenames below with the
+         actual photo files once they're shot. Recommended naming:
+           product-grade-a.jpg
+           product-custom-recycled.jpg
+           product-combo-48x40.jpg
+           product-combo-custom.jpg
+       - Optimal photo aspect ratio: 4:3 landscape (e.g., 800x600px)
+       - All "Request a Quote" buttons scroll to the form (#cta)
+     ================================================================ -->
+<section class="skids-section skids-section-light" id="products">
+  <div class="skids-section-inner">
+    <h2 id="offer">What We Offer</h2>
+    <div class="products-grid">
+
+            <div class="product-card">
+        <div class="product-image" style="background-image: url(goodbackgroundcrop.jpeg);"></div>
+        <div class="product-card-body">
+          <h3>Custom Recycled Pallets</h3>
+          <p>Built from recovered lumber to your spec, with boards under 40 inches. A custom build option most recyclers won't touch.</p>
+        </div>
+      </div>
+
+            <div class="product-card">
+        <div class="product-image" style="background-image: url(pallets.jpeg);"></div>
+        <div class="product-card-body">
+          <h3>Custom Combo Pallets</h3>
+          <p>Custom dimensions with a mix of new and recycled boards. Built to your spec when durability matters as much as price.</p>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-image" style="background-image: url(recycledpallets.jpg);"></div>
+        <div class="product-card-body">
+          <h3>48&times;40 Grade A Recycled</h3>
+          <p>Standard-size recycled pallets, inspected and graded. Same load capacity as new, at recycled pricing.</p>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-image" style="background-image: url(smallstackplus.png);"></div>
+        <div class="product-card-body">
+          <h3>Combo 48&times;40</h3>
+          <p>Standard size with a mix of new and recycled boards. Stronger than fully recycled, cheaper than fully new.</p>
+        </div>
+      </div>
+
+    </div> <div class="product-btn-container">
+      <a href="#cta" class="product-quote-btn">Request a Quote</a>
+    </div>
+
+  </div> </section>
+
+
+<!-- ================================================================
+     SECTION 4 — SERVICES (3 cards)
+     ================================================================ -->
+<section class="skids-section" id="services">
+  <div class="skids-section-inner">
+    <h2>Pickup, Repair, and Drop-Off</h2>
+    <div class="services-grid">
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2d6e10" stroke-width="2">
+            <path d="M3 17h18"/>
+            <path d="M5 17l2-7h10l2 7"/>
+            <circle cx="7" cy="19" r="2"/>
+            <circle cx="17" cy="19" r="2"/>
+          </svg>
+        </div>
+        <h3>Pallet Pickup</h3>
+        <p>We collect used pallets across the GTA. Pickup pricing depends on load size and location &mdash; quoted upfront, no surprises.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2d6e10" stroke-width="2">
+            <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+          </svg>
+        </div>
+        <h3>Pallet Repair</h3>
+        <p>Damaged pallets brought back into spec rather than scrapped. Often cheaper than buying replacements, and keeps your existing stock in circulation.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2d6e10" stroke-width="2">
+            <path d="M3 12a9 9 0 1 0 9-9"/>
+            <path d="M3 4v5h5"/>
+          </svg>
+        </div>
+        <h3>Recycling Drop-Off</h3>
+        <p>Drop off used pallets at our Etobicoke yard. We handle the sorting, repair, and recycling from there. Pricing depends on volume.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ================================================================
+     SECTION 5 — CTA / QUOTE FORM
+     COMMENT TO CODER (IMPORTANT):
+       - The form below is a VISUAL MOCKUP — the onSubmit handler just
+         shows a fake confirmation message. You'll need to wire it up
+         to actually send the data somewhere.
+       - Recommended options:
+           1) Formspree (formspree.io) — easiest, no backend needed
+           2) Web3Forms (web3forms.com) — free alternative
+           3) Custom backend that emails justskids@gmail.com
+       - Make sure the dropdown values map to the product/service names
+         in any backend or CRM you connect to.
+     ================================================================ -->
+<section class="cta-section" id="cta">
+  <div class="cta-inner">
+
+    <div class="cta-header">
+      <h2>Get a quote in one business day</h2>
+      <p>Tell us what you need &mdash; sizes, quantities, pickup, drop-off. We'll come back with pricing within one business day.</p>
+    </div>
+
+    <div class="cta-grid">
+
+      <div class="cta-contact">
+        <div class="contact-block">
+          <div class="contact-label">Phone</div>
+          <a href="tel:+14162320339" class="contact-value">416-232-0339</a>
+        </div>
+        <div class="contact-block">
+          <div class="contact-label">Email</div>
+          <a href="mailto:justskids@gmail.com" class="contact-value">justskids@gmail.com</a>
+        </div>
+        <div class="contact-block">
+          <div class="contact-label">Address</div>
+          <div class="contact-value">10 N Queen St<br>Etobicoke, ON M8Z 2C4</div>
+        </div>
+        <div class="contact-block">
+          <div class="contact-label">Hours</div>
+          <div class="contact-value">Mon&ndash;Fri: 8am &ndash; 5pm</div>
+        </div>
+      </div>
+
+      <form class="cta-form" id="quote-form" onsubmit="handleSubmit(event)" action="https://formspree.io/f/xeenkqdq" method="POST">
+
+        <div class="form-row form-row-2">
+          <div class="form-field">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Your full name" required>
+          </div>
+          <div class="form-field">
+            <label for="company">Company</label>
+            <input type="text" id="company" name="company" placeholder="Your company">
+          </div>
+        </div>
+
+        <div class="form-row form-row-2">
+          <div class="form-field">
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" name="phone" placeholder="(416) 555-0000" required>
+          </div>
+          <div class="form-field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="you@email.com" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-field">
+            <label for="interest">I'm interested in</label>
+            <select id="interest" name="interest" required>
+              <option value="" disabled selected>Select a product or service</option>
+              <option value="grade-a">48&times;40 Grade A Recycled</option>
+              <option value="custom-recycled">Custom Recycled Pallets</option>
+              <option value="combo-48x40">Combo 48&times;40</option>
+              <option value="combo-custom">Combo Custom Size</option>
+              <option value="pickup">Pallet Pickup</option>
+              <option value="repair">Pallet Repair</option>
+              <option value="drop-off">Recycling Drop-Off</option>
+              <option value="other">Something else</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-field">
+            <label for="message">Message <span class="optional">(optional)</span></label>
+            <textarea id="message" name="message" rows="4" placeholder="Quantities, sizes, pickup details, timeline..."></textarea>
+          </div>
+        </div>
+
+        <button type="submit" class="form-submit">Send Request</button>
+
+      </form>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ================================================================
+     FOOTER
+     ================================================================ -->
+<footer class="footer">
+  &copy; 2026 Just Skids &middot; 10 N Queen St, Etobicoke ON &middot; Partner of Toronto Pallet Services
+</footer>
+
+
+<!-- ================================================================
+     FORM HANDLER (mockup only — replace with real submission logic)
+     ================================================================ -->
+<script>
+        const header = document.querySelector('header');
+        let lastScrollY = window.scrollY;
+
+        window.addEventListener('scroll', () => {
+            const currentScrollY = window.scrollY;
+            if (currentScrollY > lastScrollY && currentScrollY > 80) {
+                header.classList.add('hidden');
+            } else {
+                header.classList.remove('hidden');
+            }
+            lastScrollY = currentScrollY;
+        });
+
+        // --- PAGE TRANSITION LOGIC ---
+const overlay = document.createElement('div');
+overlay.classList.add('page-transition-overlay');
+document.body.appendChild(overlay);
+
+// 1. Handle arriving on the page (and hitting the 'Back' button)
+window.addEventListener('pageshow', () => {
+    overlay.classList.remove('active');
+    overlay.classList.add('entering');
+    setTimeout(() => {
+        overlay.classList.remove('entering');
+    }, 350); // Matches the CSS 0.35s duration
+});
+
+// 2. Handle clicking links to leave the page
+document.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', function(e) {
+        if (!this.href) return;
+        
+        // Ignore email, phone, and open-in-new-tab links
+        if (this.href.startsWith('mailto:') || this.href.startsWith('tel:') || this.target === '_blank') return;
+
+        try {
+            const targetUrl = new URL(this.href);
+            const currentUrl = new URL(window.location.href);
+
+            // Only trigger if navigating to a DIFFERENT page (ignores same-page # anchors)
+            if (targetUrl.pathname !== currentUrl.pathname) {
+                e.preventDefault(); // Pause the browser's instant navigation
+                overlay.classList.remove('entering');
+                overlay.classList.add('active'); // Trigger the green wipe
+                
+                // Wait for the animation to cover the screen, then navigate
+                setTimeout(() => {
+                    window.location.href = this.href;
+                }, 350);
+            }
+        } catch (err) {
+            // Failsafe for any weird URL formats
+            console.error("URL parsing error:", err);
+        }
+    });
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    const menuToggle = document.getElementById('mobile-menu');
+    const navMenu = document.getElementById('nav-menu');
+
+    if (menuToggle) {
+        // Function to toggle
+        const toggleMenu = (e) => {
+            e.preventDefault(); // Prevents double-triggering on iOS
+            navMenu.classList.toggle('active');
+            menuToggle.classList.toggle('active');
+        };
+
+        // Attach to both click and touchstart for iOS
+        menuToggle.addEventListener('click', toggleMenu);
+        menuToggle.addEventListener('touchstart', toggleMenu, {passive: false});
+    }
+
+    // Close menu when a link is clicked
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+            menuToggle.classList.remove('active');
+        });
+    });
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    const cards = document.querySelectorAll('.product-card');
+    const overlay = document.getElementById('product-overlay');
+    const modal = document.getElementById('product-modal');
+    const closeBtn = document.getElementById('modal-close');
+    const modalContent = document.getElementById('modal-content');
+
+    const closeModal = () => {
+        overlay.classList.remove('active');
+        modal.classList.remove('active');
+        document.body.classList.remove('modal-open');
+    };
+
+    const openModal = (card) => {
+        const title = card.querySelector('h3').innerText;
+        const desc = card.querySelector('p').innerText;
+        const img = card.querySelector('.product-image').style.backgroundImage;
+
+        // Content logic
+        let details = "<li>Standard 48x40 dimensions</li><li>Heat Treated (ISPM-15) available</li><li>Reliable load bearing</li>";
+        if(title.includes("Recycled")) details = "<li>Grade A and B available</li><li>Eco-friendly & Cost-effective</li><li>Inspected for structural integrity</li>";
+        if(title.includes("Combo")) details = "<li>Best of both worlds</li><li>New stringers with recycled deck boards</li><li>Custom sizes available</li>";
+
+        modalContent.innerHTML = `
+            <div class="modal-img" style="background-image: ${img}"></div>
+            <h2 class="modal-title">${title}</h2>
+            <p class="modal-desc">${desc}</p>
+            <div class="modal-details">
+                <h4>Product Specifications</h4>
+                <ul>${details}</ul>
+                <a href="#cta" id="modal-pricing-btn" class="product-quote-btn" style="text-align:center; display:block;">Get Pricing for This Item</a>
+            </div>
+        `;
+
+        // Attach event listener to the NEW button inside the modal
+        document.getElementById('modal-pricing-btn').addEventListener('click', (e) => {
+            closeModal();
+            // The natural anchor behavior will now scroll to #cta after closing
+        });
+
+        overlay.classList.add('active');
+        modal.classList.add('active');
+        document.body.classList.add('modal-open');
+    };
+
+    cards.forEach(card => {
+        card.addEventListener('click', () => openModal(card));
+    });
+
+    closeBtn.addEventListener('click', closeModal);
+    overlay.addEventListener('click', closeModal);
+});
+    </script>
+
+<div id="product-overlay" class="product-overlay"></div>
+<div id="product-modal" class="product-modal">
+  <button class="modal-close" id="modal-close">&times;</button>
+  <div id="modal-content">
+    </div>
+</div>
+
+</body>
+</html>
