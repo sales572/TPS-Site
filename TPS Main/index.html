@@ -488,9 +488,13 @@
             transition: transform 0.3s ease;
         }
 
-        .partner-logo .reston-logo img {
+        .partner-logo img.reston-logo {
+            width: 100%;
+            height: 100%;
             object-fit: contain; /* Ensures the logo fits within the container without cropping */
-            padding: 10px; /* Optional: Adds some padding around the logo */
+            padding: 10px; /* Adds some padding around the logo */
+            display: block;
+            background: var(--white); /* Optional: Adds a white background for better visibility */
         }
 
         #services .card:hover {
