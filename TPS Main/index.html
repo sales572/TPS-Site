@@ -488,6 +488,11 @@
             transition: transform 0.3s ease;
         }
 
+        .partner-logo .reston-logo img {
+            object-fit: contain; /* Ensures the logo fits within the container without cropping */
+            padding: 10px; /* Optional: Adds some padding around the logo */
+        }
+
         #services .card:hover {
             transform: translateY(-10px);
             border-color: var(--tps-mid-green);
@@ -1112,7 +1117,7 @@ function gtag_report_conversion(url) {
         <div class="services">
             <div class="card">
                 <div class="partner-logo">
-                <img src="restontransparent.png" alt="Reston Logo">
+                <img class="reston-logo"src="restontransparent.png" alt="Reston Logo">
             </div>
                 <h3>Reston Pallet Solutions</h3>
                 <small style="color: var(--tps-amber); font-weight: 700; margin-bottom: 0.75rem; display: block;">Manufacturing</small>
