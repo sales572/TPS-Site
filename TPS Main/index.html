@@ -244,11 +244,11 @@
             line-height: 1.05;
             letter-spacing: -0.04em;
             text-align: center;
-            overflow-wrap: normal;
-            max-width: none;
+            overflow-wrap: anywhere;
+            max-width: min(100%, 900px);
             text-shadow: 4px 4px 4px #000000;
             overflow: hidden;
-            white-space: nowrap;
+            white-space: normal;
         }
 
         .hero h2 {
@@ -768,117 +768,117 @@
 
         @media (max-width: 768px) {
             header {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 1rem;
+                padding: 0.7rem 4%;
+                min-height: 72px;
             }
 
             .hero {
-                padding-top: 120px;
+                padding: 120px 4% 72px;
+                background-attachment: scroll;
             }
 
             .hero h1 {
-                font-size: clamp(3rem, 15vw, 4rem);
+                font-size: clamp(2.2rem, 8vw, 3rem);
+                left: auto;
+                transform: none;
+            }
+
+            .hero h2 {
+                font-size: 1rem;
+                line-height: 1.6;
+                margin: 1rem 0 1.5rem;
+            }
+
+            .stats {
+                flex-direction: column;
+                width: 100%;
+                gap: 0.75rem;
+            }
+
+            .stat-card {
+                width: 100%;
+                padding: 1rem;
+            }
+
+            .hero-actions {
+                width: 100%;
+            }
+
+            .hero-actions .btn-quote {
+                width: 100%;
+                text-align: center;
             }
         }
 
-        /* MOBILE HEADER FIX */
 @media (max-width: 768px) {
-    header {
-        padding: 0.5rem 3%; /* Reduce padding on sides */
-        height: 70px; /* Force a consistent height */
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
     .logo img {
-        height: 40px !important; /* Scale down logos for mobile */
+        height: 40px !important;
         width: auto;
     }
 
-    /* Hide the text links entirely on mobile until toggle is clicked */
     .nav-links {
-        display: none; 
-        position: fixed;
-        top: 70px; /* Exactly below the header */
-        left: 0;
-        width: 100%;
-        background: white;
+        display: flex;
         flex-direction: column;
-        padding: 1rem 0;
-        box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+        align-items: flex-start;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: min(85%, 320px);
+        height: 100vh;
+        background: white;
+        padding: 100px 1.25rem 2rem;
+        transition: right 0.3s ease-in-out;
+        z-index: 9998;
+        box-shadow: -10px 0 20px rgba(0,0,0,0.12);
+        overflow-y: auto;
     }
 
     .nav-links.active {
-        display: flex; /* Show when toggled */
+        right: 0;
     }
 
-    /* Prevent links from being too wide */
     .nav-links a {
-        padding: 15px 5%;
+        padding: 0.95rem 0;
         width: 100%;
         border-bottom: 1px solid #eee;
+        font-size: 1rem;
     }
 
     .btn-quote {
-        margin: 10px 5%;
+        margin: 0.5rem 0 0;
         text-align: center;
-        width: 90% !important;
+        width: 100%;
     }
+
+    .menu-toggle {
+        display: flex;
+    }
+
+    .menu-toggle.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+    .menu-toggle.active .bar:nth-child(2) { opacity: 0; }
+    .menu-toggle.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 }
 
-/* Ensure the button is visible and clickable */
 .menu-toggle {
-    display: none; /* Hidden on Desktop */
+    display: none;
     background: transparent;
     border: none;
     padding: 10px;
-    margin-right: -10px; /* Aligns with container edge */
+    margin-right: -10px;
     cursor: pointer;
     flex-direction: column;
     gap: 5px;
-    z-index: 9999; /* Higher than everything else */
-    -webkit-tap-highlight-color: transparent; /* Removes the grey box on tap */
+    z-index: 9999;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .menu-toggle .bar {
     display: block;
     width: 25px;
     height: 3px;
-    background-color: #1A2744; /* TPS Navy */
+    background-color: #1A2744;
     border-radius: 3px;
     transition: 0.3s;
-}
-
-@media (max-width: 768px) {
-    .menu-toggle {
-        display: flex; /* Force display on mobile */
-    }
-
-    .nav-links {
-        display: flex;
-        flex-direction: column;
-        position: fixed; /* Fixed is better for iOS scrolling */
-        top: 0;
-        right: -100%; /* Start off-screen */
-        width: 80%; /* Takes up 80% of screen */
-        height: 100vh;
-        background: white;
-        padding: 100px 2rem 2rem;
-        transition: 0.4s ease-in-out;
-        z-index: 9998;
-        box-shadow: -10px 0 20px rgba(0,0,0,0.1);
-    }
-
-    .nav-links.active {
-        right: 0; /* Slide in from right */
-    }
-    
-    /* X Animation */
-    .menu-toggle.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
-    .menu-toggle.active .bar:nth-child(2) { opacity: 0; }
-    .menu-toggle.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 }
 
   /* The whole footer - dark green background, white text, padding around the content */
@@ -1036,6 +1036,12 @@ function gtag_report_conversion(url) {
             <img src="./TPSlogotext.png" alt="TPS Text Logo">
         </a>
     </div>
+
+    <button class="menu-toggle" id="mobile-menu" aria-label="Open Menu" aria-expanded="false">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </button>
 
     <nav class="nav-links" id="nav-menu">
         <a href="index.html">Home</a>
@@ -1383,24 +1389,23 @@ document.addEventListener('DOMContentLoaded', () => {
     const menuToggle = document.getElementById('mobile-menu');
     const navMenu = document.getElementById('nav-menu');
 
-    if (menuToggle) {
-        // Function to toggle
+    if (menuToggle && navMenu) {
         const toggleMenu = (e) => {
-            e.preventDefault(); // Prevents double-triggering on iOS
-            navMenu.classList.toggle('active');
-            menuToggle.classList.toggle('active');
+            e.preventDefault();
+            const isOpen = navMenu.classList.toggle('active');
+            menuToggle.classList.toggle('active', isOpen);
+            menuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
         };
 
-        // Attach to both click and touchstart for iOS
         menuToggle.addEventListener('click', toggleMenu);
         menuToggle.addEventListener('touchstart', toggleMenu, {passive: false});
     }
 
-    // Close menu when a link is clicked
     document.querySelectorAll('.nav-links a').forEach(link => {
         link.addEventListener('click', () => {
             navMenu.classList.remove('active');
             menuToggle.classList.remove('active');
+            menuToggle.setAttribute('aria-expanded', 'false');
         });
     });
 });

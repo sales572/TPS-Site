@@ -151,6 +151,27 @@
             color: var(--tps-forest-green);
         }
 
+        .menu-toggle {
+            display: none;
+            background: transparent;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 5px;
+            z-index: 9999;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .menu-toggle .bar {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background-color: var(--tps-navy);
+            border-radius: 3px;
+            transition: 0.3s;
+        }
+
         .btn-quote {
             display: inline-block; /* Ensures padding behaves consistently */
             line-height: 1; /* Resets inherited line-height to fix the extra bottom space */
@@ -226,6 +247,35 @@
             margin: 0 auto 80px;
             padding: 0 5%;
             align-items: start;
+        }
+
+        @media (max-width: 768px) {
+            .contact-hero {
+                padding: 130px 5% 32px;
+            }
+
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                padding: 0 4%;
+            }
+
+            .map-frame {
+                height: 280px;
+            }
+
+            .info-card-horizontal {
+                grid-template-columns: 1fr;
+                padding: 1.25rem;
+            }
+
+            .contact-form-panel {
+                padding: 1.25rem;
+            }
+
+            .btn-send {
+                width: 100%;
+            }
         }
 
         /* MAP SIDE */
@@ -508,6 +558,12 @@ function gtag_report_conversion(url) {
         </a>
     </div>
 
+    <button class="menu-toggle" id="mobile-menu" aria-label="Open Menu" aria-expanded="false">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </button>
+
     <nav class="nav-links" id="nav-menu">
         <a href="index.html">Home</a>
         <div class="dropdown">
@@ -688,19 +744,21 @@ function gtag_report_conversion(url) {
 const menuToggle = document.getElementById('mobile-menu');
 const navMenu = document.getElementById('nav-menu');
 
-menuToggle.addEventListener('click', () => {
-    navMenu.classList.toggle('active');
-    // Change icon between ☰ and ✕
-    menuToggle.textContent = navMenu.classList.contains('active') ? '✕' : '☰';
-});
-
-// Close menu when clicking a link (especially for # anchors)
-document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', () => {
-        navMenu.classList.remove('active');
-        menuToggle.textContent = '☰';
+if (menuToggle && navMenu) {
+    menuToggle.addEventListener('click', () => {
+        const isOpen = navMenu.classList.toggle('active');
+        menuToggle.classList.toggle('active', isOpen);
+        menuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
     });
-});
+
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+            menuToggle.classList.remove('active');
+            menuToggle.setAttribute('aria-expanded', 'false');
+        });
+    });
+}
     </script>
 </body>
 </html>

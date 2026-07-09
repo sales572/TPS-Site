@@ -24,6 +24,12 @@
         </a>
     </div>
 
+    <button class="menu-toggle" id="mobile-menu" aria-label="Open Menu" aria-expanded="false">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </button>
+
     <nav class="nav-links" id="nav-menu">
         <a href="index.html">Home</a>
         <div class="dropdown">
@@ -111,24 +117,24 @@
 </footer>
 
     <script>
+        const menuToggle = document.getElementById('mobile-menu');
+        const navMenu = document.getElementById('nav-menu');
 
-        // Mobile Menu Toggle Logic
-const menuToggle = document.getElementById('mobile-menu');
-const navMenu = document.getElementById('nav-menu');
+        if (menuToggle && navMenu) {
+            menuToggle.addEventListener('click', () => {
+                const isOpen = navMenu.classList.toggle('active');
+                menuToggle.classList.toggle('active', isOpen);
+                menuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+            });
 
-menuToggle.addEventListener('click', () => {
-    navMenu.classList.toggle('active');
-    // Change icon between ☰ and ✕
-    menuToggle.textContent = navMenu.classList.contains('active') ? '✕' : '☰';
-});
-
-// Close menu when clicking a link (especially for # anchors)
-document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', () => {
-        navMenu.classList.remove('active');
-        menuToggle.textContent = '☰';
-    });
-});
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navMenu.classList.remove('active');
+                    menuToggle.classList.remove('active');
+                    menuToggle.setAttribute('aria-expanded', 'false');
+                });
+            });
+        }
     </script>
 </body>
 </html>

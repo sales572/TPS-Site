@@ -93,6 +93,33 @@
             color: var(--tps-forest-green);
         }
 
+        .menu-toggle {
+            display: none;
+            background: transparent;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 5px;
+            z-index: 9999;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .menu-toggle .bar {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background-color: var(--tps-navy);
+            border-radius: 3px;
+            transition: 0.3s;
+        }
+
         .btn-quote {
             display: inline-block; 
             line-height: 1; 
@@ -215,6 +242,25 @@
             gap: 3rem; 
         }
 
+        @media (max-width: 768px) {
+            .page-header {
+                padding: 3rem 5% 2rem;
+            }
+
+            .page-header h1 {
+                font-size: 2.2rem;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .product-card {
+                min-height: auto;
+            }
+        }
+
         .product-card {
             position: relative;
             background: var(--white);
@@ -332,15 +378,55 @@
 }
 
 @media (max-width: 768px) {
-    .nav-links {
-        display: flex !important; /* Makes links visible even without the toggle */
-        position: relative !important;
-        top: 0 !important;
-        right: 0 !important;
-        width: auto !important;
-        flex-direction: row !important; /* Keep them in a row or stack as needed */
-        box-shadow: none !important;
+    header {
+        padding: 0.7rem 4%;
+        min-height: 72px;
     }
+
+    .logo img {
+        height: 42px;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+
+    .nav-links {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: min(85%, 320px);
+        height: 100vh;
+        background: white;
+        padding: 100px 1.25rem 2rem;
+        transition: right 0.3s ease-in-out;
+        z-index: 9998;
+        overflow-y: auto;
+        box-shadow: -10px 0 20px rgba(0,0,0,0.12);
+    }
+
+    .nav-links.active {
+        right: 0;
+    }
+
+    .nav-links a {
+        padding: 0.95rem 0;
+        width: 100%;
+        border-bottom: 1px solid #eee;
+    }
+
+    .nav-links a.btn-quote {
+        margin-top: 0.5rem;
+        text-align: center;
+        width: 100%;
+    }
+
+    .menu-toggle.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+    .menu-toggle.active .bar:nth-child(2) { opacity: 0; }
+    .menu-toggle.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 }
 
   .tps-footer {
@@ -508,6 +594,12 @@
             <img src="./TPSlogotext.png" alt="TPS Text Logo">
         </a>
     </div>
+
+    <button class="menu-toggle" id="mobile-menu" aria-label="Open Menu" aria-expanded="false">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </button>
 
     <nav class="nav-links" id="nav-menu">
         <a href="index.html">Home</a>
@@ -678,19 +770,21 @@
 const menuToggle = document.getElementById('mobile-menu');
 const navMenu = document.getElementById('nav-menu');
 
-menuToggle.addEventListener('click', () => {
-    navMenu.classList.toggle('active');
-    // Change icon between ☰ and ✕
-    menuToggle.textContent = navMenu.classList.contains('active') ? '✕' : '☰';
-});
-
-// Close menu when clicking a link (especially for # anchors)
-document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', () => {
-        navMenu.classList.remove('active');
-        menuToggle.textContent = '☰';
+if (menuToggle && navMenu) {
+    menuToggle.addEventListener('click', () => {
+        const isOpen = navMenu.classList.toggle('active');
+        menuToggle.classList.toggle('active', isOpen);
+        menuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
     });
-});
+
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+            menuToggle.classList.remove('active');
+            menuToggle.setAttribute('aria-expanded', 'false');
+        });
+    });
+}
     </script>
 </body>
 </html>
