@@ -1,10 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-CA">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Toronto Pallet Services | From forest to floor — and back again.</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <title>Toronto Pallet Services | Wood Pallets, Crates & Lumber in the GTA</title>
+    <meta name="description" content="New &amp; recycled wood pallets, custom crates, cut lumber and bulk wood chips in Etobicoke. Fast GTA delivery, 20+ years experience — get a free quote.">
+    <link rel="canonical" href="https://torontopalletservices.com/">
+
+    <!-- Open Graph / Facebook / LinkedIn -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Toronto Pallet Services">
+    <meta property="og:title" content="Toronto Pallet Services | Wood Pallets, Crates & Lumber in the GTA">
+    <meta property="og:description" content="New and recycled wood pallets, custom crates, cut lumber and bulk wood chips — built locally in Etobicoke with fast delivery across the GTA.">
+    <meta property="og:url" content="https://torontopalletservices.com/">
+    <meta property="og:image" content="https://torontopalletservices.com/goodbackgroundcrop.jpeg">
+    <meta property="og:locale" content="en_CA">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Toronto Pallet Services | Wood Pallets, Crates & Lumber in the GTA">
+    <meta name="twitter:description" content="New and recycled wood pallets, custom crates, cut lumber and bulk wood chips — built locally in Etobicoke with fast delivery across the GTA.">
+    <meta name="twitter:image" content="https://torontopalletservices.com/goodbackgroundcrop.jpeg">
+
+    <meta name="theme-color" content="#1A2744">
     <link rel="icon" type="image/x-icon" href="./TPS logo transparent.png">
+    <link rel="apple-touch-icon" href="./TPS logo transparent.png">
     <style>
         /* BRAND COLOR VARIABLES */
         :root {
@@ -999,41 +1020,90 @@
     color: rgba(255, 255, 255, 0.5);
   }
 </style>
-</head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18130286060"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'AW-18130286060');
-</script>
-<!-- Event snippet for Submit lead form conversion page
-In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
-<script>
-function gtag_report_conversion(url) {
-  var callback = function () {
-    if (typeof(url) != 'undefined') {
-      window.location = url;
+    <!-- LocalBusiness structured data (helps Google Maps / local pack / rich results) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WholesaleStore",
+      "@id": "https://torontopalletservices.com/#business",
+      "name": "Toronto Pallet Services",
+      "alternateName": "TPS",
+      "description": "Supplier of new and recycled wooden pallets, custom wood crates, cut-to-size lumber, and bulk wood chips serving businesses across the Greater Toronto Area.",
+      "url": "https://torontopalletservices.com/",
+      "telephone": "+1-416-232-0339",
+      "email": "sales@tpspallets.com",
+      "image": "https://torontopalletservices.com/goodbackgroundcrop.jpeg",
+      "logo": "https://torontopalletservices.com/TPSlogotext.png",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "10 N Queen St",
+        "addressLocality": "Etobicoke",
+        "addressRegion": "ON",
+        "postalCode": "M8Z 2C4",
+        "addressCountry": "CA"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 43.622616,
+        "longitude": -79.5283431
+      },
+      "areaServed": ["Greater Toronto Area", "Ontario"],
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "08:00",
+        "closes": "17:00"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Products & Services",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Wooden Pallets" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Lumber Cut to Size" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Wood Chips" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Wood Crates" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Pallet Pickup" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Pallet Recycling" } }
+        ]
+      }
     }
-  };
-  gtag('event', 'conversion', {
-      'send_to': 'AW-18130286060/GCrvCMWvtqUcEOzrmMVD',
-      'value': 1.0,
-      'currency': 'CAD',
-      'event_callback': callback
-  });
-  return false;
-}
-</script>
+    </script>
 
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18130286060"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'AW-18130286060');
+    </script>
+    <!-- Event snippet for Submit lead form conversion page
+    In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
+    <script>
+    function gtag_report_conversion(url) {
+      var callback = function () {
+        if (typeof(url) != 'undefined') {
+          window.location = url;
+        }
+      };
+      gtag('event', 'conversion', {
+          'send_to': 'AW-18130286060/GCrvCMWvtqUcEOzrmMVD',
+          'value': 1.0,
+          'currency': 'CAD',
+          'event_callback': callback
+      });
+      return false;
+    }
+    </script>
+</head>
 <body>
     <header>
     <div class="logo">
         <a href="index.html" style="display: flex; gap: 0.5rem; align-items: center;">
-            <img src="./TPSlogobulb.png" alt="TPS Bulb Logo">
-            <img src="./TPSlogotext.png" alt="TPS Text Logo">
+            <img src="./TPSlogobulb.png" alt="">
+            <img src="./TPSlogotext.png" alt="Toronto Pallet Services logo">
         </a>
     </div>
 
@@ -1083,7 +1153,7 @@ function gtag_report_conversion(url) {
     <div class="services">
         <div class="card">
             <div class="product-image">
-                <img src="smallstackplus.png" alt="Wooden Pallets">
+                <img src="smallstackplus.png" alt="Stack of standard and custom wooden pallets" loading="lazy">
             </div>
             <h3>Pallets</h3>
             <p>Standard and custom-sized wooden pallets built for strength and durability. Ideal for warehouses, shipping, and storage needs across the GTA.</p>
@@ -1091,7 +1161,7 @@ function gtag_report_conversion(url) {
         </div>
         <div class="card">
             <div class="product-image">
-                <img src="lumberplus.png" alt="Cut Lumber">
+                <img src="lumberplus.png" alt="Lumber cut to custom sizes" loading="lazy">
             </div>
             <h3>Lumber Cut to Size</h3>
             <p>Fresh-cut lumber precisely sized to your specifications. Perfect for construction and woodworking projects.</p>
@@ -1099,7 +1169,7 @@ function gtag_report_conversion(url) {
         </div>
         <div class="card">
             <div class="product-image">
-                <img src="woodchips.png" alt="Wood Chips">
+                <img src="woodchips.png" alt="Bulk wood chips for biomass" loading="lazy">
             </div>
             <h3>Wood Chips</h3>
             <p>High-quality wood chips available in bulk. Great for biomass applications.</p>
@@ -1107,7 +1177,7 @@ function gtag_report_conversion(url) {
         </div>
         <div class="card">
             <div class="product-image">
-                <img src="woodcratesplus.png" alt="Custom Wood Crates">
+                <img src="woodcratesplus.png" alt="Custom-built wood shipping crates" loading="lazy">
             </div>
             <h3>Wood Crates</h3>
             <p>Sturdy custom wood crates designed for safe storage and shipping of heavy or fragile goods.</p>
@@ -1119,7 +1189,7 @@ function gtag_report_conversion(url) {
 </div>
 </section>
 
-    <section class="section" id="services">
+    <section class="section" id="partners">
         <div class="section-title">
             <h2>Our Partners</h2>
             <p>We work with trusted specialist partners across pallet manufacturing, recycling, wood solutions, and custom crating — all under one roof.</p>
@@ -1127,7 +1197,7 @@ function gtag_report_conversion(url) {
         <div class="services">
             <div class="card">
                 <div class="partner-logo">
-                <img class="reston-logo"src="restontransparent.png" alt="Reston Logo">
+                <img class="reston-logo"src="restontransparent.png" alt="Reston Pallet Solutions logo" loading="lazy">
             </div>
                 <h3>Reston Pallet Solutions</h3>
                 <small style="color: var(--tps-amber); font-weight: 700; margin-bottom: 0.75rem; display: block;">Manufacturing</small>
@@ -1135,7 +1205,7 @@ function gtag_report_conversion(url) {
             </div>
             <div class="card">
                 <div class="partner-logo">
-                    <img src="justskidslogo.png" alt="Just Skids Logo">
+                    <img src="justskidslogo.png" alt="Just Skids Recycling logo" loading="lazy">
                 </div>
                 <h3>Just Skids Recycling</h3>
                 <small style="color: var(--tps-amber); font-weight: 700; margin-bottom: 0.75rem; display: block;">Recycling</small>
@@ -1143,7 +1213,7 @@ function gtag_report_conversion(url) {
             </div>
                         <div class="card">
                 <div class="partner-logo">
-                    <img src="justwoodslogo.png" alt="Just Woods Logo">
+                    <img src="justwoodslogo.png" alt="Just Wood Recycling logo" loading="lazy">
                 </div>
                 <h3>Just Wood Recycling</h3>
                 <small style="color: var(--tps-amber); font-weight: 700; margin-bottom: 0.75rem; display: block;">Sustainable</small>
@@ -1151,7 +1221,7 @@ function gtag_report_conversion(url) {
             </div>
             <div class="card">
                 <div class="partner-logo">
-                    <img src="justcrateslogo.png" alt="Just Crates Logo">
+                    <img src="justcrateslogo.png" alt="Just Crates logo" loading="lazy">
                 </div>
                 <h3>Just Crates</h3>
                 <small style="color: var(--tps-amber); font-weight: 700; margin-bottom: 0.75rem; display: block;">Crating</small>
@@ -1160,7 +1230,7 @@ function gtag_report_conversion(url) {
         </div>
     </section>
 
-    <section class="section" id="services">
+    <section class="section" id="why-us">
         <div class="section-title">
             <h2>Why Businesses Trust Us</h2>
         </div>
@@ -1192,7 +1262,7 @@ function gtag_report_conversion(url) {
     <div class="certifications-grid">
     <div class="cert-card">
         <div class="cert-logo-container">
-            <img src="CFIA logo.png" alt="CFIA Logo">
+            <img src="CFIA logo.png" alt="CFIA-ACIA certification logo" loading="lazy">
         </div>
         <span>CFIA-ACIA</span>
         <p>Canadian Food Inspection Agency certified</p>
@@ -1200,7 +1270,7 @@ function gtag_report_conversion(url) {
 
     <div class="cert-card">
         <div class="cert-logo-container">
-            <img src="IPPC logo.png" alt="IPPC Logo">
+            <img src="IPPC logo.png" alt="IPPC certification logo" loading="lazy">
         </div>
         <span>IPPC</span>
         <p>International Plant Protection Convention certified</p>
@@ -1208,7 +1278,7 @@ function gtag_report_conversion(url) {
 
     <div class="cert-card">
         <div class="cert-logo-container">
-            <img src="NWPCA logo.png" alt="NWPCA Logo">
+            <img src="NWPCA logo.png" alt="NWPCA certification logo" loading="lazy">
         </div>
         <span>NWPCA</span>
         <p>North American Wood Pallet & Association certified</p>
@@ -1216,7 +1286,7 @@ function gtag_report_conversion(url) {
 
     <div class="cert-card">
         <div class="cert-logo-container">
-            <img src="CWPCA logo.png" alt="CWPCA Logo">
+            <img src="CWPCA logo.png" alt="CWPCA certification logo" loading="lazy">
         </div>
         <span>CWPCA</span>
         <p>Canadian Wood Pallet & Container Association certified</p>
