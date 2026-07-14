@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Page Not Found | Toronto Pallet Services</title>
+  <link rel="icon" type="image/x-icon" href="./TPS logo transparent.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --tps-navy: #1A2744;
+      --tps-forest-green: #1a3d08;
+      --tps-mid-green: #2D8A52;
+      --tps-amber: #C8922A;
+      --tps-cream: #F5F4F0;
+      --tps-charcoal: #2C2C2A;
+      --white: #FFFFFF;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', Roboto, Arial, sans-serif;
+      background: linear-gradient(135deg, var(--tps-cream) 0%, #ffffff 100%);
+      color: var(--tps-charcoal);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .error-card {
+      width: min(100%, 760px);
+      background: var(--white);
+      border-radius: 24px;
+      box-shadow: 0 20px 50px rgba(26, 39, 68, 0.12);
+      overflow: hidden;
+      border: 1px solid rgba(26, 39, 68, 0.08);
+    }
+
+    .error-hero {
+      background: linear-gradient(135deg, var(--tps-navy) 0%, var(--tps-forest-green) 100%);
+      color: var(--white);
+      padding: 40px 32px;
+      text-align: center;
+    }
+
+    .error-hero h1 {
+      margin: 0 0 10px;
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.1;
+    }
+
+    .error-hero p {
+      margin: 0;
+      font-size: 1rem;
+      opacity: 0.95;
+    }
+
+    .error-body {
+      padding: 36px 32px 32px;
+      text-align: center;
+    }
+
+    .error-code {
+      display: inline-block;
+      background: rgba(200, 146, 42, 0.14);
+      color: var(--tps-amber);
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      padding: 8px 14px;
+      border-radius: 999px;
+      margin-bottom: 16px;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+    }
+
+    .error-body h2 {
+      margin: 0 0 12px;
+      color: var(--tps-navy);
+      font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+    }
+
+    .error-body p {
+      margin: 0 auto 24px;
+      max-width: 560px;
+      line-height: 1.7;
+      color: var(--tps-charcoal);
+    }
+
+    .actions {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 18px;
+      border-radius: 999px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform 0.2s ease, filter 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.05);
+    }
+
+    .btn-primary {
+      background: var(--tps-amber);
+      color: var(--white);
+    }
+
+    .btn-secondary {
+      background: var(--tps-cream);
+      color: var(--tps-navy);
+    }
+
+    @media (max-width: 600px) {
+      .error-hero, .error-body {
+        padding: 28px 20px;
+      }
+
+      .actions {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="error-card">
+    <section class="error-hero">
+      <h1>Oops — that page is missing.</h1>
+      <p>The page you’re looking for may have moved, been removed, or the link may be outdated.</p>
+    </section>
+
+    <section class="error-body">
+      <span class="error-code">Error 404</span>
+      <h2>Let’s get you back on track.</h2>
+      <p>Toronto Pallet Services is here to help with pallets, crates, lumber, and wood chips. Start from the homepage or jump to one of our most-requested pages.</p>
+      <div class="actions">
+        <a href="./index.html" class="btn btn-primary">Go to Homepage</a>
+        <a href="./products.html" class="btn btn-secondary">View Products</a>
+        <a href="./contact.html" class="btn btn-secondary">Get a Quote</a>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
