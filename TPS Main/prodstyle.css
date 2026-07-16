@@ -399,6 +399,16 @@
     .nav-links { display: none; } /* Consider adding a hamburger menu for mobile */
 }
 
+@media (max-width: 768px) {
+    .why-choose-card {
+        padding: 2rem 1.25rem;
+    }
+
+    .why-choose-card h2 {
+        font-size: 1.6rem;
+    }
+}
+
 /* --- MOBILE OPTIMIZATION --- */
 @media (max-width: 768px) {
     /* 1. Header & Navigation */
